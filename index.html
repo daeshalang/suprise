@@ -18,8 +18,8 @@
       --burgundy-mid: #63182E;
       --burgundy-glow: #942647;
       --burgundy-tint: #F5DCE3;
-      --blend-surface: rgba(247, 244, 249, 0.92);
-      --blend-card: rgba(255, 255, 255, 0.94);
+      --blend-surface: rgba(247, 244, 249, 0.93);
+      --blend-card: rgba(255, 255, 255, 0.95);
       --ink-dark: #181424;
       --ink-muted: #4A435C;
     }
@@ -42,8 +42,8 @@
 
     .full-header {
       width: 100%;
-      padding: 28px clamp(18px, 5vw, 64px) 24px;
-      background: linear-gradient(90deg, rgba(14, 29, 56, 0.78) 0%, rgba(56, 22, 48, 0.65) 50%, rgba(56, 14, 27, 0.78) 100%);
+      padding: 26px clamp(18px, 5vw, 64px) 22px;
+      background: linear-gradient(90deg, rgba(14, 29, 56, 0.8) 0%, rgba(56, 22, 48, 0.68) 50%, rgba(56, 14, 27, 0.8) 100%);
       border-bottom: 1px solid rgba(255, 255, 255, 0.16);
       display: flex;
       flex-wrap: wrap;
@@ -58,7 +58,7 @@
       border: none;
       background: none;
       font-family: "Dancing Script", "Caveat", cursive;
-      font-size: clamp(42px, 7.2vw, 78px);
+      font-size: clamp(42px, 7.2vw, 76px);
       font-weight: 700;
       font-style: italic;
       color: #FFF4F7;
@@ -91,7 +91,7 @@
 
     .glass-panel {
       background: var(--blend-surface);
-      border: 1px solid rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.58);
       border-radius: 20px;
       padding: 20px 22px;
       margin-bottom: 22px;
@@ -169,45 +169,148 @@
     }
 
     .file-pick-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 13px;
-      border-radius: 10px;
-      border: 1px dashed rgba(44, 26, 60, 0.35);
-      background: rgba(255, 255, 255, 0.85);
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--ink-dark);
-      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 13px; border-radius: 10px;
+      border: 1px dashed rgba(44, 26, 60, 0.35); background: rgba(255, 255, 255, 0.85);
+      font-family: "Plus Jakarta Sans", sans-serif; font-size: 12.5px; font-weight: 600;
+      color: var(--ink-dark); cursor: pointer;
     }
 
     .btn-action {
       padding: 10px 16px; border-radius: 11px; border: none;
-      background: var(--navy-mid);
-      color: #FFF; font-family: "Plus Jakarta Sans", sans-serif; font-size: 13px; font-weight: 700; cursor: pointer;
-      transition: background-color 0.16s ease;
+      background: var(--navy-mid); color: #FFF;
+      font-family: "Plus Jakarta Sans", sans-serif; font-size: 13px; font-weight: 700; cursor: pointer;
     }
     .btn-action.theme-manolia { background: var(--navy-mid); }
     .btn-action.theme-tutarcela { background: var(--burgundy-mid); }
     .btn-action.theme-blend { background: linear-gradient(135deg, var(--navy-mid), var(--burgundy-mid)); }
 
     .btn-soft {
-      padding: 7px 12px; border-radius: 10px; border: 1px solid rgba(44, 26, 60, 0.22);
+      padding: 8px 13px; border-radius: 10px; border: 1px solid rgba(44, 26, 60, 0.22);
       background: #FFF; color: var(--ink-dark); font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 12px; font-weight: 600; cursor: pointer;
+      font-size: 12.5px; font-weight: 600; cursor: pointer;
     }
 
     .stack { display: flex; flex-direction: column; gap: 10px; }
 
+    /* Düzenle sekmesinde kitap butonları */
+    .edit-book-pick-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(44, 26, 60, 0.2);
+      background: #FFFFFF;
+      color: var(--ink-dark);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .edit-book-pick-btn:hover { background: #F5F2FA; }
+
+    /* Geniş Kitap Düzenleme Sayfası (Yorum Paneli Yok) */
+    .full-editor-page {
+      background: rgba(255, 255, 255, 0.97);
+      border: 2px solid rgba(44, 26, 60, 0.22);
+      border-radius: 22px;
+      padding: 24px 28px;
+      margin-bottom: 26px;
+      box-shadow: 0 18px 38px rgba(10, 14, 28, 0.32);
+    }
+
+    .editor-top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(44, 26, 60, 0.14);
+    }
+
+    .confirm-strip {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #F6EEF2;
+      border: 1px solid rgba(99, 24, 46, 0.25);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 13px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Geniş Kitap Okuma Sayfası: Sola/Ortaya Yakın Akış + Sağda İstatistik & Yorumlar */
+    .story-reader-page {
+      background: rgba(255, 255, 255, 0.97);
+      border: 2px solid rgba(44, 26, 60, 0.22);
+      border-radius: 22px;
+      padding: 24px 28px;
+      margin-bottom: 26px;
+      box-shadow: 0 18px 38px rgba(10, 14, 28, 0.32);
+    }
+
+    .reader-split {
+      display: grid;
+      grid-template-columns: minmax(280px, 1.45fr) minmax(260px, 0.85fr);
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .reader-split { grid-template-columns: 1fr; } }
+
+    .story-flow-col {
+      max-width: 720px;
+      text-align: left;
+    }
+
+    .story-body-text {
+      font-size: 16.5px;
+      line-height: 1.88;
+      white-space: pre-line;
+      color: var(--ink-dark);
+      margin-top: 12px;
+    }
+
+    .reader-sidebar {
+      background: #F7F5FA;
+      border: 1px solid rgba(44, 26, 60, 0.16);
+      border-radius: 16px;
+      padding: 16px 18px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(44, 26, 60, 0.14);
+    }
+
+    .comment-item {
+      padding: 9px 11px;
+      border-radius: 10px;
+      background: #FFFFFF;
+      border: 1px solid rgba(44, 26, 60, 0.12);
+      font-size: 12.5px;
+      margin-top: 8px;
+    }
+
+    /* Manolia & Tutarcela Alanları */
     .twins-showcase {
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-bottom: 24px;
     }
     @media (max-width: 860px) { .twins-showcase { grid-template-columns: 1fr; } }
 
     .twin-zone {
-      position: relative; overflow: hidden; border-radius: 22px; padding: 24px; min-height: 260px;
+      position: relative; overflow: hidden; border-radius: 22px; padding: 24px; min-height: 280px;
       box-shadow: 0 16px 34px rgba(8, 12, 24, 0.28);
     }
     .twin-zone.manolia-zone {
@@ -219,58 +322,59 @@
       background: linear-gradient(160deg, var(--burgundy-deep) 0%, var(--burgundy-mid) 65%, #461121 100%);
     }
 
-    .zone-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .zone-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
     .zone-title { margin: 0; font-size: 23px; font-style: italic; }
     .zone-pill {
       font-family: "Plus Jakarta Sans", sans-serif; font-size: 11px; font-weight: 700;
       padding: 4px 11px; border-radius: 999px; background: rgba(255, 255, 255, 0.16);
     }
 
-    .book-card-view {
-      margin-top: 12px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      font-family: "Plus Jakarta Sans", sans-serif;
+    /* Enine maksimum 2 dikey kutu; 3. kitap aşağı kaydırılarak açılır */
+    .vertical-books-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-height: 540px;
+      overflow-y: auto;
+      padding-right: 4px;
     }
+    @media (max-width: 540px) { .vertical-books-grid { grid-template-columns: 1fr; } }
 
-    .book-header-flex {
+    .vertical-book-card {
       display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      margin-bottom: 10px;
-    }
-
-    .book-cover-thumb {
-      width: 64px;
-      height: 84px;
-      border-radius: 10px;
-      object-fit: cover;
-      flex-shrink: 0;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      background: rgba(0, 0, 0, 0.25);
-    }
-
-    .zone-chapter-box {
-      margin-top: 8px; padding: 9px 12px; border-radius: 11px;
-      background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.16);
-      font-size: 12.5px;
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    }
-
-    .read-btn {
-      padding: 5px 11px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.35);
-      background: rgba(255, 255, 255, 0.18); color: #FFF; font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0;
-    }
-
-    .edit-book-box {
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 210px;
       padding: 14px;
-      border-radius: 14px;
-      background: #FFFFFF;
-      border: 1px solid rgba(44, 26, 60, 0.2);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
     }
+    .vertical-book-card:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.19);
+    }
+
+    .book-cover-box {
+      width: 100%;
+      height: 112px;
+      border-radius: 11px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    .book-cover-box img { width: 100%; height: 100%; object-fit: cover; }
 
     .hidden { display: none; }
   </style>
@@ -346,7 +450,7 @@
           <button class="menu-btn" type="button" id="tabNotes">Notluk</button>
         </div>
 
-        <!-- CREATE SEKMESİ: Yeni Kitap & İlk Bölüm Oluşturma -->
+        <!-- CREATE: Sıfırdan Kitap Oluşturma -->
         <section class="glass-panel" id="panelCreate">
           <h2 style="margin:0 0 10px; font-size:19px;">Kimin Kitabına Bölüm Yazacaksın?</h2>
           <div class="twin-choice-row">
@@ -354,24 +458,23 @@
             <button class="choice-tutarcela" type="button" id="pickTutarcela">Tutarcela (Bordo)</button>
           </div>
           <form class="stack" id="createBookForm">
-            <input type="text" id="newBookTitle" placeholder="Kitap adı (ör: Gece Denizinin Yankısı)..." required>
-            <input type="text" id="newBookIntro" placeholder="Kısa giriş notu (isteğe bağlı)...">
-            <input type="text" id="newChapTitle" placeholder="İlk bölüm başlığı..." required>
-            <textarea id="newChapBody" rows="3" placeholder="Bölümü yaz..." required></textarea>
+            <input type="text" id="newBookTitle" placeholder="Kitap adı..." required>
+            <input type="text" id="newChapterTitle" placeholder="Bölüm başlığı..." required>
+            <textarea id="newChapterBody" rows="4" placeholder="Bölüm metni..." required></textarea>
             <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-              <button class="btn-action theme-manolia" type="submit" id="saveCreateBtn">Kitabı ve Bölümü Kaydet</button>
+              <button class="btn-action theme-manolia" type="submit" id="saveCreateBtn">Kitabı Oluştur</button>
               <span id="createFeedback" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:600;"></span>
             </div>
           </form>
         </section>
 
-        <!-- DÜZENLE SEKMESİ: Kitap Detayı, Fotoğraf, Giriş ve Bölüm Yönetimi -->
+        <!-- DÜZENLE: Kitap İsimleri Listesi -->
         <section class="glass-panel hidden" id="panelEdit">
-          <h2 style="margin:0 0 10px; font-size:19px;">Kitap ve Bölüm Düzenleme</h2>
-          <div class="stack" id="editBooksContainer"></div>
+          <h2 style="margin:0 0 10px; font-size:19px;">Düzenlenecek Kitabı Seç</h2>
+          <div class="stack" id="editBookList"></div>
         </section>
 
-        <!-- NOTLUK SEKMESİ -->
+        <!-- NOTLUK -->
         <section class="glass-panel hidden" id="panelNotes">
           <h2 style="margin:0 0 10px; font-size:19px;">Kişisel Notluk</h2>
           <textarea id="notesField" rows="4" placeholder="Notlarını yaz..."></textarea>
@@ -383,22 +486,82 @@
       </div>
     </section>
 
-    <!-- OKUMA PENCERESİ -->
-    <section class="glass-panel hidden" id="readerBox">
-      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; color:var(--ink-muted);" id="readerMeta"></div>
-      <h2 style="margin:4px 0 12px; font-size:24px;" id="readerChapTitle"></h2>
-      <div style="font-size:16px; line-height:1.8; white-space:pre-line; margin-bottom:16px;" id="readerChapBody"></div>
-      <button class="btn-soft" type="button" id="closeReaderBtn">Okumayı Kapat</button>
+    <!-- GENİŞ KİTAP DÜZENLEME SAYFASI (Yorum Yok, Sağ Üstte Kaydet -> Onay -> Kaydet ve Ayrıl) -->
+    <section class="full-editor-page hidden" id="bookEditorPage">
+      <div class="editor-top-bar">
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; color:var(--ink-muted);" id="editorOwnerBadge"></div>
+          <h2 style="margin:2px 0 0; font-size:22px;" id="editorHeading">Kitap Düzenleme</h2>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn-action theme-blend" type="button" id="editorSaveTriggerBtn">Kaydet</button>
+          <button class="btn-soft" type="button" id="editorExitWithoutSaveBtn">Geri Dön</button>
+        </div>
+      </div>
+
+      <div class="stack" style="margin-bottom:14px;">
+        <input type="text" id="editBookTitleInput" placeholder="Kitap adı...">
+        <input type="text" id="editChapterTitleInput" placeholder="Bölüm başlığı...">
+        <div>
+          <label class="file-pick-label" for="editBookCoverInput">Kitap Fotoğrafı Seç</label>
+          <input type="file" id="editBookCoverInput" accept="image/*" style="display:none;">
+          <span id="editCoverFileText" style="margin-left:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--ink-muted);"></span>
+        </div>
+        <textarea id="editBookIntroInput" rows="2" placeholder="Giriş / kısa not (isteğe bağlı)..."></textarea>
+        <textarea id="editChapterBodyInput" rows="10" placeholder="Kitap / bölüm metni..."></textarea>
+      </div>
+
+      <div class="confirm-strip hidden" id="saveConfirmStrip">
+        <span><strong>Kaydetmek istiyor musunuz?</strong></span>
+        <button class="btn-action theme-blend" type="button" id="confirmSaveAndLeaveBtn">Evet — Kaydet ve Ayrıl</button>
+        <button class="btn-soft" type="button" id="cancelConfirmBtn">Vazgeç</button>
+      </div>
     </section>
 
-    <!-- MANOLİA & TUTARCELA KİTAP VİTRİNİ -->
+    <!-- GENİŞ KİTAP OKUMA SAYFASI (Hikaye Akışı + Sağda Yorum, Oy, Okunma, İzlenme) -->
+    <section class="story-reader-page hidden" id="storyReaderPage">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap;">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; color:var(--ink-muted);" id="readerAuthorTag"></span>
+        <button class="btn-soft" type="button" id="closeStoryReaderBtn">Okuma Sayfasını Kapat</button>
+      </div>
+
+      <div class="reader-split">
+        <div class="story-flow-col">
+          <h2 style="margin:0; font-size:28px;" id="readerBookTitle"></h2>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:600; color:var(--ink-muted); margin-top:4px;" id="readerChapterHeading"></div>
+          <p style="font-size:14px; font-style:italic; color:var(--ink-muted); margin:8px 0 0;" id="readerBookIntro"></p>
+          <div class="story-body-text" id="readerStoryText"></div>
+        </div>
+
+        <aside class="reader-sidebar">
+          <h3 style="margin:0 0 10px; font-size:15px;">Okuma & Etkileşim</h3>
+          <div class="stat-row"><span>Okunma</span><strong id="statReads">0</strong></div>
+          <div class="stat-row"><span>İzlenme</span><strong id="statViews">0</strong></div>
+          <div class="stat-row"><span>Oy</span><strong id="statVotes">0</strong></div>
+
+          <div style="margin-top:12px;">
+            <button class="btn-action theme-blend" type="button" id="voteStoryBtn" style="width:100%;">Oy Ver (+1)</button>
+          </div>
+
+          <div style="margin-top:16px; padding-top:12px; border-top:1px dashed rgba(44,26,60,0.18);">
+            <div style="font-size:13px; font-weight:700; margin-bottom:8px;">Yorumlar</div>
+            <input type="text" id="commentAuthorInput" placeholder="Adın..." style="margin-bottom:6px;">
+            <textarea id="commentTextInput" rows="2" placeholder="Yorumunu yaz..." style="margin-bottom:6px;"></textarea>
+            <button class="btn-soft" type="button" id="addCommentBtn">Yorum Gönder</button>
+            <div id="commentsListBox"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- MANOLİA & TUTARCELA YARATTIĞI KİTAPLAR -->
     <section class="twins-showcase">
       <article class="twin-zone manolia-zone">
         <div class="zone-top">
           <h2 class="zone-title">Manolia'nın Yarattığı Kitap</h2>
           <span class="zone-pill">LACİVERT</span>
         </div>
-        <div id="manoliaBooksArea"></div>
+        <div class="vertical-books-grid" id="manoliaBooksGrid"></div>
       </article>
 
       <article class="twin-zone tutarcela-zone">
@@ -406,7 +569,7 @@
           <h2 class="zone-title">Tutarcela'nın Yarattığı Kitap</h2>
           <span class="zone-pill">BORDO</span>
         </div>
-        <div id="tutarcelaBooksArea"></div>
+        <div class="vertical-books-grid" id="tutarcelaBooksGrid"></div>
       </article>
     </section>
   </main>
@@ -418,7 +581,9 @@
       var writerOpen = false;
       var chosenOwner = "manolia";
       var tempAvatar = "";
-      var tempBookCovers = {};
+      var editingBookId = null;
+      var pendingEditCover = "";
+      var activeReaderBookId = null;
 
       var state = {
         capcutUrl: "",
@@ -433,29 +598,35 @@
           {
             id: "book_manolia_1",
             owner: "manolia",
-            title: "Lacivert Kıyı Defteri",
-            intro: "Derin sularda başlayan ilk yolculuk.",
+            title: "Deneme Kitabı",
+            chapterTitle: "Bölüm 1",
+            intro: "",
             cover: "",
-            chapters: [
-              { title: "Bölüm 1 — Sisli Liman", body: "Gece laciverte dönerken fenerin ışığı ilk kez dalgalara düştü." }
-            ]
+            body: "Deneme metni burada yer alıyor.",
+            reads: 1,
+            views: 1,
+            votes: 0,
+            comments: []
           },
           {
             id: "book_tutarcela_1",
             owner: "tutarcela",
-            title: "Bordo Mürekkep Günlüğü",
-            intro: "Gölge ile ateş arasındaki ilk satırlar.",
+            title: "Bordo Günlük",
+            chapterTitle: "Bölüm 1",
+            intro: "",
             cover: "",
-            chapters: [
-              { title: "Bölüm 1 — Kül ve Kadife", body: "Masadaki eski defter açıldığında ilk cümle kendiliğinden belirdi." }
-            ]
+            body: "Tutarcela'nın ilk deneme metni.",
+            reads: 1,
+            views: 1,
+            votes: 0,
+            comments: []
           }
         ]
       };
 
       function safeRead() {
         try {
-          var raw = window.localStorage.getItem("mt_studio_v7");
+          var raw = window.localStorage.getItem("mt_studio_v8");
           if (!raw) return;
           var p = JSON.parse(raw);
           if (typeof p.capcutUrl === "string") state.capcutUrl = p.capcutUrl;
@@ -472,8 +643,15 @@
 
       function safeWrite() {
         try {
-          window.localStorage.setItem("mt_studio_v7", JSON.stringify(state));
+          window.localStorage.setItem("mt_studio_v8", JSON.stringify(state));
         } catch (err) {}
+      }
+
+      function findBook(id) {
+        for (var i = 0; i < state.books.length; i++) {
+          if (state.books[i].id === id) return state.books[i];
+        }
+        return null;
       }
 
       function refreshBioCounter() {
@@ -500,6 +678,7 @@
           rightCol.classList.add("hidden");
           profBox.classList.add("hidden");
           document.getElementById("profForm").classList.add("hidden");
+          document.getElementById("bookEditorPage").classList.add("hidden");
           btn.classList.remove("writer-active");
           btn.textContent = "Yazar Modu";
         }
@@ -546,7 +725,6 @@
 
       document.getElementById("bannerTitleBtn").addEventListener("click", toggleCapcut);
       document.getElementById("capcutBtn").addEventListener("click", toggleCapcut);
-
       document.getElementById("capcutSaveBtn").addEventListener("click", function () {
         var url = document.getElementById("capcutField").value.trim();
         state.capcutUrl = url;
@@ -626,12 +804,10 @@
         document.getElementById("panelCreate").classList.toggle("hidden", which !== "create");
         document.getElementById("panelEdit").classList.toggle("hidden", which !== "edit");
         document.getElementById("panelNotes").classList.toggle("hidden", which !== "notes");
-
         document.getElementById("tabCreate").classList.toggle("active", which === "create");
         document.getElementById("tabEdit").classList.toggle("active", which === "edit");
         document.getElementById("tabNotes").classList.toggle("active", which === "notes");
-
-        if (which === "edit") renderEditBooks();
+        if (which === "edit") renderEditBookList();
       }
 
       document.getElementById("tabCreate").addEventListener("click", function () { switchSubTab("create"); });
@@ -642,10 +818,8 @@
         var mBtn = document.getElementById("pickManolia");
         var tBtn = document.getElementById("pickTutarcela");
         var saveBtn = document.getElementById("saveCreateBtn");
-
         mBtn.classList.toggle("selected", chosenOwner === "manolia");
         tBtn.classList.toggle("selected", chosenOwner === "tutarcela");
-
         saveBtn.classList.remove("theme-manolia", "theme-tutarcela");
         saveBtn.classList.add(chosenOwner === "manolia" ? "theme-manolia" : "theme-tutarcela");
       }
@@ -663,182 +837,124 @@
       document.getElementById("createBookForm").addEventListener("submit", function (e) {
         e.preventDefault();
         var bookTitle = document.getElementById("newBookTitle").value.trim();
-        var bookIntro = document.getElementById("newBookIntro").value.trim();
-        var chapTitle = document.getElementById("newChapTitle").value.trim();
-        var chapBody = document.getElementById("newChapBody").value.trim();
+        var chapTitle = document.getElementById("newChapterTitle").value.trim();
+        var chapBody = document.getElementById("newChapterBody").value.trim();
         if (!bookTitle || !chapTitle || !chapBody) return;
 
         state.books.push({
           id: "book_" + Date.now() + "_" + Math.floor(Math.random() * 1000),
           owner: chosenOwner,
           title: bookTitle,
-          intro: bookIntro,
+          chapterTitle: chapTitle,
+          intro: "",
           cover: "",
-          chapters: [{ title: chapTitle, body: chapBody }]
+          body: chapBody,
+          reads: 0,
+          views: 0,
+          votes: 0,
+          comments: []
         });
 
         safeWrite();
         document.getElementById("newBookTitle").value = "";
-        document.getElementById("newBookIntro").value = "";
-        document.getElementById("newChapTitle").value = "";
-        document.getElementById("newChapBody").value = "";
+        document.getElementById("newChapterTitle").value = "";
+        document.getElementById("newChapterBody").value = "";
 
         var fb = document.getElementById("createFeedback");
-        fb.textContent = "Oluşturuldu ✓";
+        fb.textContent = "Kitap oluşturuldu ✓";
         setTimeout(function () { fb.textContent = ""; }, 2000);
 
-        renderBooks();
-        renderEditBooks();
+        renderBookGrids();
+        renderEditBookList();
       });
 
-      function renderEditBooks() {
-        var wrap = document.getElementById("editBooksContainer");
-        wrap.innerHTML = "";
-
+      /* DÜZENLE: Kitap İsimleri Listesi */
+      function renderEditBookList() {
+        var listEl = document.getElementById("editBookList");
+        listEl.innerHTML = "";
         state.books.forEach(function (book) {
-          var card = document.createElement("div");
-          card.className = "edit-book-box";
-
-          var badge = document.createElement("div");
-          badge.style.cssText = "font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;margin-bottom:8px;color:" +
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "edit-book-pick-btn";
+          var titleSpan = document.createElement("span");
+          titleSpan.textContent = book.title;
+          var ownerSpan = document.createElement("span");
+          ownerSpan.style.cssText = "font-size:11.5px;padding:3px 9px;border-radius:999px;color:#fff;background:" +
             (book.owner === "manolia" ? "var(--navy-mid)" : "var(--burgundy-mid)") + ";";
-          badge.textContent = book.owner === "manolia" ? "Manolia (Lacivert)" : "Tutarcela (Bordo)";
-          card.appendChild(badge);
-
-          var titleInp = document.createElement("input");
-          titleInp.type = "text";
-          titleInp.value = book.title;
-          titleInp.placeholder = "Kitap adı...";
-          titleInp.style.marginBottom = "8px";
-          card.appendChild(titleInp);
-
-          var introInp = document.createElement("textarea");
-          introInp.rows = 2;
-          introInp.value = book.intro || "";
-          introInp.placeholder = "Kitap giriş kısmı...";
-          introInp.style.marginBottom = "8px";
-          card.appendChild(introInp);
-
-          var coverRow = document.createElement("div");
-          coverRow.style.cssText = "display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;";
-
-          var fileInp = document.createElement("input");
-          fileInp.type = "file";
-          fileInp.accept = "image/*";
-          fileInp.style.fontSize = "12px";
-
-          var coverNote = document.createElement("span");
-          coverNote.style.cssText = "font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:var(--ink-muted);";
-          coverNote.textContent = book.cover ? "Kapak fotoğrafı kayıtlı" : "Kapak fotoğrafı yok";
-
-          fileInp.addEventListener("change", function (ev) {
-            var f = ev.target.files && ev.target.files[0];
-            if (!f || !window.FileReader) return;
-            var r = new FileReader();
-            r.onload = function (loadEv) {
-              tempBookCovers[book.id] = loadEv.target.result || "";
-              coverNote.textContent = "Yeni fotoğraf seçildi: " + f.name;
-            };
-            r.readAsDataURL(f);
+          ownerSpan.textContent = book.owner === "manolia" ? "Manolia" : "Tutarcela";
+          btn.appendChild(titleSpan);
+          btn.appendChild(ownerSpan);
+          btn.addEventListener("click", function () {
+            openBookEditor(book.id);
           });
-
-          coverRow.appendChild(fileInp);
-          coverRow.appendChild(coverNote);
-          card.appendChild(coverRow);
-
-          var saveBookBtn = document.createElement("button");
-          saveBookBtn.type = "button";
-          saveBookBtn.className = "btn-action " + (book.owner === "manolia" ? "theme-manolia" : "theme-tutarcela");
-          saveBookBtn.textContent = "Kitap Bilgilerini Kaydet";
-          saveBookBtn.style.marginBottom = "12px";
-
-          saveBookBtn.addEventListener("click", function () {
-            book.title = titleInp.value.trim() || book.title;
-            book.intro = introInp.value.trim();
-            if (tempBookCovers[book.id]) {
-              book.cover = tempBookCovers[book.id];
-            }
-            safeWrite();
-            renderBooks();
-            renderEditBooks();
-          });
-          card.appendChild(saveBookBtn);
-
-          /* Bölümleri Düzenle */
-          var chWrap = document.createElement("div");
-          chWrap.className = "stack";
-          chWrap.style.marginBottom = "12px";
-
-          book.chapters.forEach(function (ch, cIdx) {
-            var chBox = document.createElement("div");
-            chBox.style.cssText = "padding:10px;border-radius:10px;background:#F7F5FA;border:1px solid rgba(44,26,60,0.14);";
-
-            var cTitle = document.createElement("input");
-            cTitle.type = "text";
-            cTitle.value = ch.title;
-            cTitle.style.marginBottom = "6px";
-
-            var cBody = document.createElement("textarea");
-            cBody.rows = 2;
-            cBody.value = ch.body;
-            cBody.style.marginBottom = "6px";
-
-            var cSave = document.createElement("button");
-            cSave.type = "button";
-            cSave.className = "btn-soft";
-            cSave.textContent = "Bölümü Güncelle";
-            cSave.addEventListener("click", function () {
-              book.chapters[cIdx] = {
-                title: cTitle.value.trim() || ch.title,
-                body: cBody.value.trim()
-              };
-              safeWrite();
-              renderBooks();
-            });
-
-            chBox.appendChild(cTitle);
-            chBox.appendChild(cBody);
-            chBox.appendChild(cSave);
-            chWrap.appendChild(chBox);
-          });
-          card.appendChild(chWrap);
-
-          /* Kitaba Yeni Bölüm Ekle */
-          var addChBox = document.createElement("div");
-          addChBox.style.cssText = "padding-top:10px;border-top:1px dashed rgba(44,26,60,0.2);";
-
-          var addTitle = document.createElement("input");
-          addTitle.type = "text";
-          addTitle.placeholder = "Yeni bölüm başlığı...";
-          addTitle.style.marginBottom = "6px";
-
-          var addBody = document.createElement("textarea");
-          addBody.rows = 2;
-          addBody.placeholder = "Yeni bölüm metni...";
-          addBody.style.marginBottom = "6px";
-
-          var addBtn = document.createElement("button");
-          addBtn.type = "button";
-          addBtn.className = "btn-action " + (book.owner === "manolia" ? "theme-manolia" : "theme-tutarcela");
-          addBtn.textContent = "Bu Kitaba Bölüm Ekle";
-          addBtn.addEventListener("click", function () {
-            var nt = addTitle.value.trim();
-            var nb = addBody.value.trim();
-            if (!nt || !nb) return;
-            book.chapters.push({ title: nt, body: nb });
-            safeWrite();
-            renderBooks();
-            renderEditBooks();
-          });
-
-          addChBox.appendChild(addTitle);
-          addChBox.appendChild(addBody);
-          addChBox.appendChild(addBtn);
-          card.appendChild(addChBox);
-
-          wrap.appendChild(card);
+          listEl.appendChild(btn);
         });
       }
+
+      /* Geniş Kitap Düzenleme Sayfası */
+      function openBookEditor(bookId) {
+        var book = findBook(bookId);
+        if (!book) return;
+        editingBookId = book.id;
+        pendingEditCover = book.cover || "";
+
+        document.getElementById("editorOwnerBadge").textContent =
+          (book.owner === "manolia" ? "Manolia (Lacivert)" : "Tutarcela (Bordo)") + " • Düzenleme Ekranı";
+        document.getElementById("editorHeading").textContent = book.title;
+        document.getElementById("editBookTitleInput").value = book.title;
+        document.getElementById("editChapterTitleInput").value = book.chapterTitle || "";
+        document.getElementById("editBookIntroInput").value = book.intro || "";
+        document.getElementById("editChapterBodyInput").value = book.body || "";
+        document.getElementById("editCoverFileText").textContent = book.cover ? "Mevcut kapak fotoğrafı kayıtlı" : "";
+        document.getElementById("saveConfirmStrip").classList.add("hidden");
+
+        var page = document.getElementById("bookEditorPage");
+        page.classList.remove("hidden");
+        page.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      document.getElementById("editBookCoverInput").addEventListener("change", function (e) {
+        var f = e.target.files && e.target.files[0];
+        if (!f || !window.FileReader) return;
+        document.getElementById("editCoverFileText").textContent = f.name;
+        var r = new FileReader();
+        r.onload = function (ev) { pendingEditCover = ev.target.result || ""; };
+        r.readAsDataURL(f);
+      });
+
+      document.getElementById("editorSaveTriggerBtn").addEventListener("click", function () {
+        document.getElementById("saveConfirmStrip").classList.remove("hidden");
+      });
+
+      document.getElementById("cancelConfirmBtn").addEventListener("click", function () {
+        document.getElementById("saveConfirmStrip").classList.add("hidden");
+      });
+
+      document.getElementById("confirmSaveAndLeaveBtn").addEventListener("click", function () {
+        var book = findBook(editingBookId);
+        if (!book) return;
+        book.title = document.getElementById("editBookTitleInput").value.trim() || book.title;
+        book.chapterTitle = document.getElementById("editChapterTitleInput").value.trim() || "Bölüm 1";
+        book.intro = document.getElementById("editBookIntroInput").value.trim();
+        book.body = document.getElementById("editChapterBodyInput").value;
+        if (pendingEditCover) book.cover = pendingEditCover;
+
+        safeWrite();
+        document.getElementById("saveConfirmStrip").classList.add("hidden");
+        document.getElementById("bookEditorPage").classList.add("hidden");
+        editingBookId = null;
+
+        renderBookGrids();
+        renderEditBookList();
+        switchSubTab("create");
+        document.getElementById("writerRightCol").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+
+      document.getElementById("editorExitWithoutSaveBtn").addEventListener("click", function () {
+        document.getElementById("saveConfirmStrip").classList.add("hidden");
+        document.getElementById("bookEditorPage").classList.add("hidden");
+        editingBookId = null;
+      });
 
       document.getElementById("saveNotesBtn").addEventListener("click", function () {
         state.notes = document.getElementById("notesField").value;
@@ -848,73 +964,129 @@
         setTimeout(function () { fb.textContent = ""; }, 2000);
       });
 
-      document.getElementById("closeReaderBtn").addEventListener("click", function () {
-        document.getElementById("readerBox").classList.add("hidden");
+      /* GENİŞ OKUMA SAYFASI + SAĞDA İSTATİSTİK & YORUMLAR */
+      function renderComments(book) {
+        var box = document.getElementById("commentsListBox");
+        box.innerHTML = "";
+        if (!Array.isArray(book.comments) || book.comments.length === 0) {
+          var empty = document.createElement("div");
+          empty.style.cssText = "font-size:12px;color:var(--ink-muted);margin-top:8px;";
+          empty.textContent = "Henüz yorum yok.";
+          box.appendChild(empty);
+          return;
+        }
+        book.comments.forEach(function (c) {
+          var item = document.createElement("div");
+          item.className = "comment-item";
+          var who = document.createElement("strong");
+          who.textContent = (c.author || "Okur") + ": ";
+          var txt = document.createElement("span");
+          txt.textContent = c.text;
+          item.appendChild(who);
+          item.appendChild(txt);
+          box.appendChild(item);
+        });
+      }
+
+      function openStoryReader(bookId) {
+        var book = findBook(bookId);
+        if (!book) return;
+        activeReaderBookId = book.id;
+        book.reads = (book.reads || 0) + 1;
+        book.views = (book.views || 0) + 1;
+        safeWrite();
+
+        document.getElementById("readerAuthorTag").textContent =
+          (book.owner === "manolia" ? "Manolia (Lacivert)" : "Tutarcela (Bordo)") + " • Okuma Sayfası";
+        document.getElementById("readerBookTitle").textContent = book.title;
+        document.getElementById("readerChapterHeading").textContent = book.chapterTitle || "";
+        document.getElementById("readerBookIntro").textContent = book.intro || "";
+        document.getElementById("readerStoryText").textContent = book.body || "";
+
+        document.getElementById("statReads").textContent = book.reads;
+        document.getElementById("statViews").textContent = book.views;
+        document.getElementById("statVotes").textContent = book.votes || 0;
+        renderComments(book);
+
+        var page = document.getElementById("storyReaderPage");
+        page.classList.remove("hidden");
+        page.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      document.getElementById("voteStoryBtn").addEventListener("click", function () {
+        var book = findBook(activeReaderBookId);
+        if (!book) return;
+        book.votes = (book.votes || 0) + 1;
+        document.getElementById("statVotes").textContent = book.votes;
+        safeWrite();
       });
 
-      function renderBooks() {
+      document.getElementById("addCommentBtn").addEventListener("click", function () {
+        var book = findBook(activeReaderBookId);
+        if (!book) return;
+        var author = document.getElementById("commentAuthorInput").value.trim() || "Okur";
+        var text = document.getElementById("commentTextInput").value.trim();
+        if (!text) return;
+        if (!Array.isArray(book.comments)) book.comments = [];
+        book.comments.push({ author: author, text: text });
+        document.getElementById("commentTextInput").value = "";
+        renderComments(book);
+        safeWrite();
+      });
+
+      document.getElementById("closeStoryReaderBtn").addEventListener("click", function () {
+        document.getElementById("storyReaderPage").classList.add("hidden");
+        activeReaderBookId = null;
+      });
+
+      /* Dikey Kutucuklar (Enine Maksimum 2 Kutucuk) */
+      function renderBookGrids() {
         ["manolia", "tutarcela"].forEach(function (ownerKey) {
-          var target = document.getElementById(ownerKey + "BooksArea");
-          target.innerHTML = "";
-          var filtered = state.books.filter(function (b) { return b.owner === ownerKey; });
+          var grid = document.getElementById(ownerKey + "BooksGrid");
+          grid.innerHTML = "";
+          var list = state.books.filter(function (b) { return b.owner === ownerKey; });
 
-          filtered.forEach(function (book) {
-            var card = document.createElement("div");
-            card.className = "book-card-view";
+          list.forEach(function (book) {
+            var card = document.createElement("button");
+            card.type = "button";
+            card.className = "vertical-book-card";
 
-            var topFlex = document.createElement("div");
-            topFlex.className = "book-header-flex";
+            var topPart = document.createElement("div");
+            var coverBox = document.createElement("div");
+            coverBox.className = "book-cover-box";
 
             if (book.cover) {
               var img = document.createElement("img");
-              img.className = "book-cover-thumb";
               img.src = book.cover;
               img.alt = book.title;
-              topFlex.appendChild(img);
+              coverBox.appendChild(img);
+            } else {
+              coverBox.textContent = "Kitap Kapağı";
             }
 
-            var metaBox = document.createElement("div");
             var bTitle = document.createElement("div");
-            bTitle.style.cssText = "font-size:16px;font-weight:700;";
+            bTitle.style.cssText = "font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;";
             bTitle.textContent = book.title;
-            metaBox.appendChild(bTitle);
 
-            if (book.intro) {
-              var bIntro = document.createElement("div");
-              bIntro.style.cssText = "font-size:12.5px;opacity:0.88;margin-top:3px;";
-              bIntro.textContent = book.intro;
-              metaBox.appendChild(bIntro);
-            }
+            var cTitle = document.createElement("div");
+            cTitle.style.cssText = "font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;opacity:0.85;margin-top:3px;";
+            cTitle.textContent = book.chapterTitle || "";
 
-            topFlex.appendChild(metaBox);
-            card.appendChild(topFlex);
+            topPart.appendChild(coverBox);
+            topPart.appendChild(bTitle);
+            topPart.appendChild(cTitle);
 
-            book.chapters.forEach(function (ch) {
-              var row = document.createElement("div");
-              row.className = "zone-chapter-box";
+            var foot = document.createElement("div");
+            foot.style.cssText = "font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;opacity:0.8;margin-top:10px;";
+            foot.textContent = "Açmak için tıkla →";
 
-              var labelSpan = document.createElement("span");
-              labelSpan.textContent = ch.title;
-
-              var readBtn = document.createElement("button");
-              readBtn.type = "button";
-              readBtn.className = "read-btn";
-              readBtn.textContent = "Oku";
-              readBtn.addEventListener("click", function () {
-                document.getElementById("readerMeta").textContent = book.title + " • " + (ownerKey === "manolia" ? "Manolia" : "Tutarcela");
-                document.getElementById("readerChapTitle").textContent = ch.title;
-                document.getElementById("readerChapBody").textContent = ch.body;
-                var rb = document.getElementById("readerBox");
-                rb.classList.remove("hidden");
-                rb.scrollIntoView({ behavior: "smooth", block: "nearest" });
-              });
-
-              row.appendChild(labelSpan);
-              row.appendChild(readBtn);
-              card.appendChild(row);
+            card.appendChild(topPart);
+            card.appendChild(foot);
+            card.addEventListener("click", function () {
+              openStoryReader(book.id);
             });
 
-            target.appendChild(card);
+            grid.appendChild(card);
           });
         });
       }
@@ -923,7 +1095,7 @@
       renderProfile();
       syncOwnerButtonTheme();
       document.getElementById("notesField").value = state.notes;
-      renderBooks();
+      renderBookGrids();
     })();
   </script>
 </body>
