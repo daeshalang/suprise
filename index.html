@@ -65,7 +65,7 @@
       cursor: pointer;
     }
 
-    .header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .header-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 
     .pill-btn {
       padding: 10px 18px;
@@ -186,7 +186,7 @@
     .choice-manolia.selected { background: var(--navy-mid); color: #FFF; }
     .choice-tutarcela.selected { background: var(--burgundy-mid); color: #FFF; }
 
-    input[type="text"], input[type="url"], input[type="password"], textarea, select {
+    input[type="text"], input[type="email"], input[type="url"], input[type="password"], textarea, select {
       width: 100%; padding: 10px 13px; border-radius: 11px;
       border: 1px solid rgba(44, 26, 60, 0.24); background: #FFF;
       font-family: "Plus Jakarta Sans", sans-serif; font-size: 13.5px; color: var(--ink-dark);
@@ -317,6 +317,138 @@
       box-shadow: 0 8px 24px rgba(24, 20, 36, 0.06);
     }
 
+    /* YILDIZ / KALP OY BUTONU VE ANİMASYONLARI */
+    .vote-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      padding: 8px 0;
+    }
+
+    .star-vote-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(99, 24, 46, 0.28);
+      background: #FFF9FB;
+      color: var(--burgundy-deep);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.16s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .star-vote-btn:active {
+      transform: scale(0.92);
+    }
+
+    .star-vote-btn.voted {
+      background: linear-gradient(135deg, #2F5597, #942647);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(99, 24, 46, 0.26);
+    }
+
+    .star-icon {
+      font-size: 17px;
+      line-height: 1;
+      transition: transform 0.22s ease;
+    }
+
+    .star-vote-btn.voted .star-icon {
+      transform: scale(1.16) rotate(-8deg);
+    }
+
+    @keyframes floatUpSparkle {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.65) rotate(0deg);
+      }
+      70% {
+        opacity: 0.95;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--dx, 0px), -54px) scale(1.15) rotate(var(--rot, 18deg));
+      }
+    }
+
+    .floating-sparkle {
+      position: absolute;
+      left: 50%;
+      top: 6px;
+      pointer-events: none;
+      font-size: 14px;
+      z-index: 25;
+      animation: floatUpSparkle 0.92s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes shatterDropLeft {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+      }
+      55% {
+        opacity: 0.72;
+        transform: translate(-14px, 26px) rotate(-26deg) scale(0.95);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-22px, 58px) rotate(-38deg) scale(0.75);
+      }
+    }
+
+    @keyframes shatterDropRight {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+      }
+      55% {
+        opacity: 0.72;
+        transform: translate(14px, 26px) rotate(26deg) scale(0.95);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(22px, 58px) rotate(38deg) scale(0.75);
+      }
+    }
+
+    .shatter-half-left {
+      position: absolute;
+      left: calc(50% - 8px);
+      top: 8px;
+      pointer-events: none;
+      font-size: 16px;
+      color: var(--burgundy-mid);
+      z-index: 25;
+      animation: shatterDropLeft 1.05s ease-in forwards;
+    }
+
+    .shatter-half-right {
+      position: absolute;
+      left: calc(50% + 2px);
+      top: 8px;
+      pointer-events: none;
+      font-size: 16px;
+      color: var(--navy-mid);
+      z-index: 25;
+      animation: shatterDropRight 1.05s ease-in forwards;
+    }
+
+    .google-auth-box {
+      padding: 12px;
+      border-radius: 12px;
+      background: #F4F1FA;
+      border: 1px solid rgba(44, 26, 60, 0.18);
+      margin-top: 10px;
+    }
+
     .stat-row {
       display: flex;
       justify-content: space-between;
@@ -360,7 +492,6 @@
       padding: 4px 11px; border-radius: 999px; background: rgba(255, 255, 255, 0.16);
     }
 
-    /* Enine maksimum 2 dikey kutu; 3. kitap aşağı kaydırılarak açılır */
     .vertical-books-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -455,7 +586,6 @@
     </section>
 
     <section class="top-workspace reader-only-layout" id="topWorkspace">
-      <!-- SOL KUTU: PROFİL + ALTINDA + İLE DUYURU ALANI -->
       <aside class="glass-panel" style="margin-bottom:0;">
         <div class="profile-row">
           <div class="avatar-circle"><div class="avatar-circle-inner" id="avatarInner">✦</div></div>
@@ -489,7 +619,6 @@
           </form>
         </div>
 
-        <!-- PROFİL KUTUSUNUN ALTINDA + İLE DUYURU ALANI -->
         <div class="announcement-box">
           <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
             <strong style="font-size:13.5px;">Duyurular</strong>
@@ -513,7 +642,6 @@
         </div>
       </aside>
 
-      <!-- SAĞ KUTU: CREATE / DÜZENLE / NOTLUK -->
       <div id="writerRightCol" class="hidden">
         <div class="menu-strip">
           <button class="menu-btn active" type="button" id="tabCreate">Create</button>
@@ -554,7 +682,6 @@
       </div>
     </section>
 
-    <!-- MANOLİA & TUTARCELA DİKEY KİTAP VİTRİNİ -->
     <section class="twins-showcase">
       <article class="twin-zone manolia-zone">
         <div class="zone-top">
@@ -613,7 +740,11 @@
     <div class="fullscreen-inner">
       <div class="wattpad-topbar">
         <span style="font-size:12.5px; font-weight:700; color:var(--ink-muted);" id="wpAuthorBadge"></span>
-        <button class="btn-soft" type="button" id="wpBackBtn">← Geri Dön</button>
+        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+          <span id="googleUserBadge" style="font-size:12px; font-weight:600; color:var(--navy-mid);"></span>
+          <button class="btn-soft hidden" type="button" id="googleSignOutBtn">Oturumu Kapat</button>
+          <button class="btn-soft" type="button" id="wpBackBtn">← Geri Dön</button>
+        </div>
       </div>
 
       <div class="wattpad-layout">
@@ -630,13 +761,27 @@
           <div class="stat-row"><span>İzlenme</span><strong id="wpViews">0</strong></div>
           <div class="stat-row"><span>Oy</span><strong id="wpVotes">0</strong></div>
 
-          <div style="margin-top:12px;">
-            <button class="btn-action theme-blend" type="button" id="wpVoteBtn" style="width:100%;">Oy Ver (+1)</button>
+          <!-- TEK OY HAKLI YILDIZ / KALP BUTONU -->
+          <div class="vote-stage" id="voteStage">
+            <button class="star-vote-btn" type="button" id="wpVoteBtn">
+              <span class="star-icon" id="wpVoteIcon">✦</span>
+              <span id="wpVoteLabel">Yıldız Ver</span>
+            </button>
+          </div>
+
+          <div class="google-auth-box hidden" id="googleLoginCard">
+            <div style="font-size:12.5px; font-weight:700; margin-bottom:6px;">Oy ve yorum için Google oturumu aç</div>
+            <input type="text" id="gNameInput" placeholder="Google adın..." style="margin-bottom:6px;">
+            <input type="email" id="gEmailInput" placeholder="ornek@gmail.com" style="margin-bottom:8px;">
+            <div style="display:flex; gap:6px;">
+              <button class="btn-action theme-blend" type="button" id="gConfirmLoginBtn">Google ile Oturum Aç</button>
+              <button class="btn-soft" type="button" id="gCancelLoginBtn">İptal</button>
+            </div>
+            <div id="gLoginMsg" style="font-size:11.5px; color:var(--burgundy-mid); margin-top:6px;"></div>
           </div>
 
           <div style="margin-top:16px; padding-top:12px; border-top:1px dashed rgba(44,26,60,0.18);">
             <div style="font-size:13px; font-weight:700; margin-bottom:8px;">Yorumlar</div>
-            <input type="text" id="wpCommentAuthor" placeholder="Adın..." style="margin-bottom:6px;">
             <textarea id="wpCommentText" rows="2" placeholder="Yorumunu yaz..." style="margin-bottom:6px;"></textarea>
             <button class="btn-soft" type="button" id="wpCommentSubmit">Yorum Gönder</button>
             <div id="wpCommentsList"></div>
@@ -652,6 +797,8 @@
     (function () {
       var PIN = "1999";
       var BIO_LIMIT = 500;
+      var STORAGE_KEY = "mt_studio_v12";
+
       var writerOpen = false;
       var chosenOwner = "manolia";
       var tempAvatar = "";
@@ -662,6 +809,8 @@
 
       var state = {
         capcutUrl: "",
+        googleUser: null,
+        userVotes: {}, /* { [bookId_email]: true } */
         profile: {
           name: "Yazar Profili",
           tag: "Evren ve Hikaye Defteri",
@@ -707,8 +856,103 @@
         clearTimeout(showToast._t);
         showToast._t = setTimeout(function () {
           el.classList.add("hidden");
-        }, 3200);
+        }, 3000);
       }
+
+      function compressImageFile(file, maxDim, quality, cb) {
+        if (!file || !window.FileReader) return cb("");
+        var reader = new FileReader();
+        reader.onload = function (ev) {
+          var img = new Image();
+          img.onload = function () {
+            var w = img.width;
+            var h = img.height;
+            if (w > maxDim || h > maxDim) {
+              if (w >= h) {
+                h = Math.round((h * maxDim) / w);
+                w = maxDim;
+              } else {
+                w = Math.round((w * maxDim) / h);
+                h = maxDim;
+              }
+            }
+            var canvas = document.createElement("canvas");
+            canvas.width = w;
+            canvas.height = h;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, w, h);
+            try {
+              cb(canvas.toDataURL("image/jpeg", quality));
+            } catch (e) {
+              cb(ev.target.result || "");
+            }
+          };
+          img.onerror = function () { cb(ev.target.result || ""); };
+          img.src = ev.target.result || "";
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function safeRead() {
+        try {
+          var raw = window.localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          var p = JSON.parse(raw);
+          if (typeof p.capcutUrl === "string") state.capcutUrl = p.capcutUrl;
+          if (p.googleUser && p.googleUser.email) state.googleUser = p.googleUser;
+          if (p.userVotes && typeof p.userVotes === "object") state.userVotes = p.userVotes;
+          if (p.profile) {
+            state.profile.name = p.profile.name || state.profile.name;
+            state.profile.tag = p.profile.tag || state.profile.tag;
+            state.profile.avatar = p.profile.avatar || "";
+            state.profile.bio = typeof p.profile.bio === "string" ? p.profile.bio.slice(0, BIO_LIMIT) : state.profile.bio;
+          }
+          if (typeof p.notes === "string") state.notes = p.notes;
+          if (Array.isArray(p.announcements)) state.announcements = p.announcements;
+          if (Array.isArray(p.books) && p.books.length > 0) state.books = p.books;
+        } catch (err) {}
+      }
+
+      function safeWrite() {
+        try {
+          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (err) {
+          showToast("Kayıt alanı dolu; daha küçük görsel seç.");
+        }
+      }
+
+      function findBook(id) {
+        for (var i = 0; i < state.books.length; i++) {
+          if (state.books[i].id === id) return state.books[i];
+        }
+        return null;
+      }
+
+      var isHandlingPopstate = false;
+      function pushAppStep(stepName) {
+        if (isHandlingPopstate) return;
+        try {
+          window.history.pushState({ appStep: stepName }, "");
+        } catch (e) {}
+      }
+
+      window.addEventListener("popstate", function () {
+        isHandlingPopstate = true;
+        var readerOpen = !document.getElementById("fullscreenReaderScreen").classList.contains("hidden");
+        var editorOpen = !document.getElementById("fullscreenEditorScreen").classList.contains("hidden");
+
+        if (readerOpen) {
+          document.getElementById("fullscreenReaderScreen").classList.add("hidden");
+          activeReaderBookId = null;
+        } else if (editorOpen) {
+          document.getElementById("fsConfirmBox").classList.add("hidden");
+          document.getElementById("fullscreenEditorScreen").classList.add("hidden");
+          editingBookId = null;
+        } else if (writerOpen) {
+          setWriterMode(false);
+        }
+        isHandlingPopstate = false;
+      });
 
       function requestNotificationPermissionIfNeeded() {
         try {
@@ -727,39 +971,6 @@
         } catch (err) {}
       }
 
-      function safeRead() {
-        try {
-          var raw = window.localStorage.getItem("mt_studio_v10");
-          if (!raw) return;
-          var p = JSON.parse(raw);
-          if (typeof p.capcutUrl === "string") state.capcutUrl = p.capcutUrl;
-          if (p.profile) {
-            state.profile.name = p.profile.name || state.profile.name;
-            state.profile.tag = p.profile.tag || state.profile.tag;
-            state.profile.avatar = p.profile.avatar || "";
-            state.profile.bio = typeof p.profile.bio === "string" ? p.profile.bio.slice(0, BIO_LIMIT) : state.profile.bio;
-          }
-          if (typeof p.notes === "string") state.notes = p.notes;
-          if (Array.isArray(p.announcements)) state.announcements = p.announcements;
-          if (Array.isArray(p.books) && p.books.length > 0) state.books = p.books;
-        } catch (err) {}
-      }
-
-      function safeWrite() {
-        try {
-          window.localStorage.setItem("mt_studio_v10", JSON.stringify(state));
-        } catch (err) {
-          showToast("Tarayıcı depolama alanı dolu olabilir.");
-        }
-      }
-
-      function findBook(id) {
-        for (var i = 0; i < state.books.length; i++) {
-          if (state.books[i].id === id) return state.books[i];
-        }
-        return null;
-      }
-
       function refreshBioCounter() {
         var bioEl = document.getElementById("bioInput");
         var clipped = bioEl.value.slice(0, BIO_LIMIT);
@@ -775,6 +986,7 @@
         var annBtn = document.getElementById("openAnnounceComposerBtn");
         var btn = document.getElementById("writerModeBtn");
         if (open) {
+          pushAppStep("writer_mode");
           ws.classList.remove("reader-only-layout");
           rightCol.classList.remove("hidden");
           profBox.classList.remove("hidden");
@@ -881,11 +1093,10 @@
 
       document.getElementById("photoInput").addEventListener("change", function (e) {
         var f = e.target.files && e.target.files[0];
-        if (!f || !window.FileReader) return;
+        if (!f) return;
         document.getElementById("photoNameLabel").textContent = f.name;
-        var r = new FileReader();
-        r.onload = function (ev) {
-          tempAvatar = ev.target.result || "";
+        compressImageFile(f, 420, 0.78, function (dataUrl) {
+          tempAvatar = dataUrl;
           if (tempAvatar) {
             var img = document.createElement("img");
             img.src = tempAvatar;
@@ -894,8 +1105,7 @@
             av.innerHTML = "";
             av.appendChild(img);
           }
-        };
-        r.readAsDataURL(f);
+        });
       });
 
       document.getElementById("profForm").addEventListener("submit", function (e) {
@@ -907,10 +1117,9 @@
         safeWrite();
         renderProfile();
         document.getElementById("profForm").classList.add("hidden");
-        showToast("Profil kaydedildi.");
+        showToast("Profil kalıcı olarak kaydedildi.");
       });
 
-      /* DUYURU SİSTEMİ (+ BUTONU, FOTOĞRAF/BELGE, PAYLAŞ, TAKİPÇİ BİLDİRİMİ) */
       document.getElementById("openAnnounceComposerBtn").addEventListener("click", function () {
         pendingAnnounceMedia = { dataUrl: "", name: "", isImage: false };
         document.getElementById("announceMediaName").textContent = "";
@@ -923,18 +1132,20 @@
 
       document.getElementById("announceMediaInput").addEventListener("change", function (e) {
         var f = e.target.files && e.target.files[0];
-        if (!f || !window.FileReader) return;
+        if (!f) return;
         var isImg = !!(f.type && f.type.indexOf("image/") === 0);
         document.getElementById("announceMediaName").textContent = f.name;
-        var r = new FileReader();
-        r.onload = function (ev) {
-          pendingAnnounceMedia = {
-            dataUrl: ev.target.result || "",
-            name: f.name,
-            isImage: isImg
+        if (isImg) {
+          compressImageFile(f, 640, 0.75, function (dataUrl) {
+            pendingAnnounceMedia = { dataUrl: dataUrl, name: f.name, isImage: true };
+          });
+        } else if (window.FileReader) {
+          var r = new FileReader();
+          r.onload = function (ev) {
+            pendingAnnounceMedia = { dataUrl: ev.target.result || "", name: f.name, isImage: false };
           };
-        };
-        r.readAsDataURL(f);
+          r.readAsDataURL(f);
+        }
       });
 
       function renderAnnouncements() {
@@ -1003,6 +1214,7 @@
       });
 
       function switchSubTab(which) {
+        pushAppStep("tab_" + which);
         document.getElementById("panelCreate").classList.toggle("hidden", which !== "create");
         document.getElementById("panelEdit").classList.toggle("hidden", which !== "edit");
         document.getElementById("panelNotes").classList.toggle("hidden", which !== "notes");
@@ -1095,6 +1307,7 @@
       function openFullscreenEditor(bookId) {
         var book = findBook(bookId);
         if (!book) return;
+        pushAppStep("fullscreen_editor");
         editingBookId = book.id;
         pendingCoverData = book.cover || "";
 
@@ -1114,11 +1327,11 @@
 
       document.getElementById("fsCoverInput").addEventListener("change", function (e) {
         var f = e.target.files && e.target.files[0];
-        if (!f || !window.FileReader) return;
+        if (!f) return;
         document.getElementById("fsCoverName").textContent = f.name;
-        var r = new FileReader();
-        r.onload = function (ev) { pendingCoverData = ev.target.result || ""; };
-        r.readAsDataURL(f);
+        compressImageFile(f, 640, 0.75, function (dataUrl) {
+          pendingCoverData = dataUrl;
+        });
       });
 
       document.getElementById("fsSaveBtn").addEventListener("click", function () {
@@ -1147,6 +1360,7 @@
         renderEditBookList();
         setWriterMode(true);
         switchSubTab("create");
+        showToast("Değişiklikler kaydedildi.");
       });
 
       document.getElementById("fsCancelBtn").addEventListener("click", function () {
@@ -1161,6 +1375,122 @@
         var fb = document.getElementById("notesFeedback");
         fb.textContent = "Kaydedildi ✓";
         setTimeout(function () { fb.textContent = ""; }, 2000);
+      });
+
+      /* TEK OY HAKKI & YILDIZ/KALP ANİMASYONLARI */
+      function getVoteKey(bookId) {
+        if (!state.googleUser || !state.googleUser.email || !bookId) return "";
+        return bookId + "::" + state.googleUser.email.toLowerCase();
+      }
+
+      function hasVotedBook(bookId) {
+        var key = getVoteKey(bookId);
+        return !!(key && state.userVotes && state.userVotes[key]);
+      }
+
+      function refreshVoteButtonUI(bookId) {
+        var btn = document.getElementById("wpVoteBtn");
+        var icon = document.getElementById("wpVoteIcon");
+        var label = document.getElementById("wpVoteLabel");
+        var voted = hasVotedBook(bookId);
+        btn.classList.toggle("voted", voted);
+        icon.textContent = voted ? "♥" : "✦";
+        label.textContent = voted ? "Yıldız Verildi (Geri Al)" : "Yıldız Ver";
+      }
+
+      function spawnUpwardSparkles() {
+        var stage = document.getElementById("voteStage");
+        var glyphs = ["✦", "♥", "✧", "♡"];
+        var offsets = [-28, -12, 12, 28];
+        var rotations = [-20, -8, 10, 22];
+
+        for (var i = 0; i < 4; i++) {
+          var sp = document.createElement("span");
+          sp.className = "floating-sparkle";
+          sp.textContent = glyphs[i % glyphs.length];
+          sp.style.setProperty("--dx", offsets[i] + "px");
+          sp.style.setProperty("--rot", rotations[i] + "deg");
+          sp.style.color = i % 2 === 0 ? "#2F5597" : "#942647";
+          stage.appendChild(sp);
+          (function (node) {
+            setTimeout(function () {
+              if (node && node.parentNode) node.parentNode.removeChild(node);
+            }, 960);
+          })(sp);
+        }
+      }
+
+      function spawnShatterAndFade() {
+        var stage = document.getElementById("voteStage");
+        var leftShard = document.createElement("span");
+        leftShard.className = "shatter-half-left";
+        leftShard.textContent = "💔";
+
+        var rightShard = document.createElement("span");
+        rightShard.className = "shatter-half-right";
+        rightShard.textContent = "✧";
+
+        stage.appendChild(leftShard);
+        stage.appendChild(rightShard);
+
+        setTimeout(function () {
+          if (leftShard && leftShard.parentNode) leftShard.parentNode.removeChild(leftShard);
+          if (rightShard && rightShard.parentNode) rightShard.parentNode.removeChild(rightShard);
+        }, 1100);
+      }
+
+      /* GOOGLE OTURUM KONTROLÜ */
+      var pendingAuthAction = null;
+
+      function refreshGoogleAuthUI() {
+        var badge = document.getElementById("googleUserBadge");
+        var outBtn = document.getElementById("googleSignOutBtn");
+        if (state.googleUser && state.googleUser.email) {
+          badge.textContent = "Google: " + state.googleUser.name;
+          outBtn.classList.remove("hidden");
+          document.getElementById("googleLoginCard").classList.add("hidden");
+        } else {
+          badge.textContent = "";
+          outBtn.classList.add("hidden");
+        }
+        if (activeReaderBookId) refreshVoteButtonUI(activeReaderBookId);
+      }
+
+      function requireGoogleLogin(actionFn) {
+        if (state.googleUser && state.googleUser.email) {
+          actionFn();
+          return;
+        }
+        pendingAuthAction = actionFn;
+        document.getElementById("gLoginMsg").textContent = "";
+        document.getElementById("googleLoginCard").classList.remove("hidden");
+      }
+
+      document.getElementById("gConfirmLoginBtn").addEventListener("click", function () {
+        var gName = document.getElementById("gNameInput").value.trim();
+        var gEmail = document.getElementById("gEmailInput").value.trim();
+        if (!gName || !gEmail || gEmail.indexOf("@") === -1) {
+          document.getElementById("gLoginMsg").textContent = "Geçerli bir Google adı ve e-posta gir.";
+          return;
+        }
+        state.googleUser = { name: gName, email: gEmail };
+        safeWrite();
+        refreshGoogleAuthUI();
+        var fn = pendingAuthAction;
+        pendingAuthAction = null;
+        if (typeof fn === "function") fn();
+      });
+
+      document.getElementById("gCancelLoginBtn").addEventListener("click", function () {
+        pendingAuthAction = null;
+        document.getElementById("googleLoginCard").classList.add("hidden");
+      });
+
+      document.getElementById("googleSignOutBtn").addEventListener("click", function () {
+        state.googleUser = null;
+        safeWrite();
+        refreshGoogleAuthUI();
+        showToast("Google oturumu kapatıldı.");
       });
 
       function renderWpComments(book) {
@@ -1189,6 +1519,7 @@
       function openFullscreenReader(bookId) {
         var book = findBook(bookId);
         if (!book) return;
+        pushAppStep("fullscreen_reader");
         activeReaderBookId = book.id;
         book.reads = (book.reads || 0) + 1;
         book.views = (book.views || 0) + 1;
@@ -1204,6 +1535,7 @@
         document.getElementById("wpReads").textContent = book.reads;
         document.getElementById("wpViews").textContent = book.views;
         document.getElementById("wpVotes").textContent = book.votes || 0;
+        refreshGoogleAuthUI();
         renderWpComments(book);
 
         document.getElementById("fullscreenReaderScreen").classList.remove("hidden");
@@ -1211,24 +1543,44 @@
       }
 
       document.getElementById("wpVoteBtn").addEventListener("click", function () {
-        var book = findBook(activeReaderBookId);
-        if (!book) return;
-        book.votes = (book.votes || 0) + 1;
-        document.getElementById("wpVotes").textContent = book.votes;
-        safeWrite();
+        requireGoogleLogin(function () {
+          var book = findBook(activeReaderBookId);
+          if (!book) return;
+          var key = getVoteKey(book.id);
+          if (!key) return;
+
+          if (state.userVotes[key]) {
+            delete state.userVotes[key];
+            book.votes = Math.max(0, (book.votes || 0) - 1);
+            spawnShatterAndFade();
+            showToast("Oyun geri alındı.");
+          } else {
+            state.userVotes[key] = true;
+            book.votes = (book.votes || 0) + 1;
+            spawnUpwardSparkles();
+            showToast("Yıldızın eklendi ✓");
+          }
+
+          document.getElementById("wpVotes").textContent = book.votes;
+          refreshVoteButtonUI(book.id);
+          safeWrite();
+        });
       });
 
       document.getElementById("wpCommentSubmit").addEventListener("click", function () {
-        var book = findBook(activeReaderBookId);
-        if (!book) return;
-        var author = document.getElementById("wpCommentAuthor").value.trim() || "Okur";
-        var text = document.getElementById("wpCommentText").value.trim();
-        if (!text) return;
-        if (!Array.isArray(book.comments)) book.comments = [];
-        book.comments.push({ author: author, text: text });
-        document.getElementById("wpCommentText").value = "";
-        renderWpComments(book);
-        safeWrite();
+        requireGoogleLogin(function () {
+          var book = findBook(activeReaderBookId);
+          if (!book) return;
+          var text = document.getElementById("wpCommentText").value.trim();
+          if (!text) return;
+          var author = (state.googleUser && state.googleUser.name) ? state.googleUser.name : "Google Okuru";
+          if (!Array.isArray(book.comments)) book.comments = [];
+          book.comments.push({ author: author, text: text });
+          document.getElementById("wpCommentText").value = "";
+          renderWpComments(book);
+          safeWrite();
+          showToast("Yorum paylaşıldı ✓");
+        });
       });
 
       document.getElementById("wpBackBtn").addEventListener("click", function () {
@@ -1291,6 +1643,7 @@
       requestNotificationPermissionIfNeeded();
       renderProfile();
       renderAnnouncements();
+      refreshGoogleAuthUI();
       syncOwnerButtonTheme();
       document.getElementById("notesField").value = state.notes;
       renderBookGrids();
