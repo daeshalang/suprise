@@ -303,7 +303,6 @@
 
     input[type="text"],
     input[type="url"],
-    input[type="password"],
     textarea,
     select {
       width: 100%;
@@ -551,20 +550,6 @@
   </header>
 
   <main class="full-flow">
-    <!-- PIN Giriş Kutusu -->
-    <section class="glass-panel hidden" id="pinGateBox" style="margin-bottom:20px;">
-      <h2 style="margin:0 0 8px; font-size:19px;">Yazar Modu PIN Girişi</h2>
-      <p style="margin:0 0 10px; font-size:13.5px; color:var(--ink-muted);">
-        Düzenleme, bölüm ekleme ve notluk alanını açmak için PIN kodunu gir (varsayılan: <strong>2026</strong>).
-      </p>
-      <form style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;" onsubmit="verifyWriterPin(event)">
-        <input type="password" id="writerPinInput" inputmode="numeric" placeholder="PIN kodu..." style="max-width:220px;" required>
-        <button class="btn-blend" type="submit">Giriş Yap</button>
-        <button class="btn-soft" type="button" onclick="closePinGate()">İptal</button>
-      </form>
-      <div id="pinErrorText" style="margin-top:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:600; color:var(--burgundy-mid);"></div>
-    </section>
-
     <section class="glass-panel hidden" id="capcutArea" style="margin-bottom:20px;">
       <h2 style="margin:0 0 8px; font-size:19px;">Doğum Günü Videosu Bağlantısı</h2>
       <p style="margin:0 0 10px; font-size:13.5px; color:var(--ink-muted);">
@@ -579,7 +564,6 @@
 
     <div class="ornament-line">✦ Manolia & Tutarcela ✦</div>
 
-    <!-- Okuyucu modunda sade profil, Yazar Modunda sağda Create / Düzenle / Notluk -->
     <section class="top-workspace reader-only-layout" id="topWorkspace">
       <aside class="glass-panel">
         <div class="profile-row">
@@ -666,7 +650,6 @@
       </div>
     </section>
 
-    <!-- Okuma Alanı -->
     <section class="reader-box hidden" id="readerPanel" aria-label="Hikaye Okuma Ekranı">
       <div class="reader-meta" id="readerMeta">KİTAP</div>
       <h2 class="reader-title" id="readerTitle">Bölüm Başlığı</h2>
@@ -680,7 +663,6 @@
       </div>
     </section>
 
-    <!-- Manolia (Lacivert) & Tutarcela (Bordo) Kitap Alanları -->
     <section class="twins-showcase" aria-label="Manolia ve Tutarcela Kitap Alanları">
       <article class="twin-zone manolia-zone">
         <div class="mist-overlay"></div>
@@ -793,32 +775,18 @@
         setWriterModeState(false);
         return;
       }
-      document.getElementById("pinErrorText").textContent = "";
-      document.getElementById("writerPinInput").value = "";
-      document.getElementById("pinGateBox").classList.remove("hidden");
-      document.getElementById("writerPinInput").focus();
-    }
-
-    function verifyWriterPin(e) {
-      e.preventDefault();
-      const entered = document.getElementById("writerPinInput").value.trim();
-      if (entered === WRITER_PIN) {
-        document.getElementById("pinGateBox").classList.add("hidden");
-        document.getElementById("pinErrorText").textContent = "";
+      const pin = window.prompt("Yazar Modu PIN kodunu gir:");
+      if (pin === null) return;
+      if (pin.trim() === WRITER_PIN) {
         setWriterModeState(true);
       } else {
-        document.getElementById("pinErrorText").textContent = "PIN kodu hatalı, tekrar dene.";
+        window.alert("PIN kodu hatalı.");
       }
-    }
-
-    function closePinGate() {
-      document.getElementById("pinGateBox").classList.add("hidden");
-      document.getElementById("pinErrorText").textContent = "";
     }
 
     function loadAppData() {
       try {
-        const raw = localStorage.getItem("manoliaTutarcelaStudioV1");
+        const raw = localStorage.getItem("manoliaTutarcelaStudioV2");
         if (!raw) return;
         const parsed = JSON.parse(raw);
         if (typeof parsed.capcutUrl === "string") appData.capcutUrl = parsed.capcutUrl;
@@ -834,7 +802,7 @@
 
     function saveAppData() {
       try {
-        localStorage.setItem("manoliaTutarcelaStudioV1", JSON.stringify(appData));
+        localStorage.setItem("manoliaTutarcelaStudioV2", JSON.stringify(appData));
       } catch (e) {}
     }
 
