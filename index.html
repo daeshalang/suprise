@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>İYİ Kİ DOĞDUNUZ! — Yazarlık & Evren Defteri</title>
+  <title>İYİ DOĞDUNUZ! — Melek & İrem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-green-1: #E7F4EC;
-      --bg-green-2: #CFE5D8;
-      --bg-green-3: #B6D6C4;
-      --surface-light: #F5FBF7;
-      --surface-card: #FFFFFF;
-      --border-green: #83B498;
-      --green-dark: #254E39;
-      --green-main: #3B7356;
-      --green-soft: #D6ECE0;
-      --ink-main: #1A3125;
-      --ink-soft: #4A6959;
+      --navy-deep: #0E1D38;
+      --navy-mid: #1A325E;
+      --navy-glow: #2F5597;
+      --navy-tint: #DCE6F7;
+
+      --burgundy-deep: #380E1B;
+      --burgundy-mid: #63182E;
+      --burgundy-glow: #942647;
+      --burgundy-tint: #F5DCE3;
+
+      --blend-surface: rgba(247, 244, 249, 0.88);
+      --blend-card: rgba(255, 255, 255, 0.9);
+      --blend-border: rgba(99, 24, 46, 0.22);
+      --ink-dark: #181424;
+      --ink-muted: #4A435C;
     }
 
     * {
@@ -25,204 +32,267 @@
 
     body {
       margin: 0;
-      padding: 28px 18px 64px;
+      padding: 0 0 72px;
       min-height: 100vh;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--ink-main);
+      font-family: "Lora", Georgia, serif;
+      color: var(--ink-dark);
       background:
-        radial-gradient(circle at 12% 10%, rgba(154, 206, 176, 0.55), transparent 42%),
-        radial-gradient(circle at 88% 15%, rgba(122, 177, 146, 0.42), transparent 45%),
-        linear-gradient(180deg, var(--bg-green-1) 0%, var(--bg-green-2) 55%, var(--bg-green-3) 100%);
+        radial-gradient(ellipse at 14% 18%, rgba(47, 85, 151, 0.34), transparent 52%),
+        radial-gradient(ellipse at 86% 22%, rgba(148, 38, 71, 0.32), transparent 52%),
+        radial-gradient(ellipse at 50% 85%, rgba(26, 50, 94, 0.22), rgba(99, 24, 46, 0.22) 60%, transparent 85%),
+        linear-gradient(125deg, #132445 0%, #2C1A3C 48%, #471222 100%);
       line-height: 1.65;
+      overflow-x: hidden;
     }
 
-    .page-shell {
-      max-width: 1040px;
-      margin: 0 auto;
-      background: var(--surface-light);
-      border: 2px solid var(--border-green);
-      border-radius: 26px;
-      padding: 26px 28px 38px;
-      box-shadow:
-        0 16px 36px rgba(37, 78, 57, 0.14),
-        inset 0 0 0 6px rgba(255, 255, 255, 0.65);
-    }
-
-    /* Soldan sağa büyük harflerle italik İYİ Kİ DOĞDUNUZ! */
-    .top-banner {
+    /* Ekranın tamamını kullanan akıcı üst şerit */
+    .full-header {
       width: 100%;
-      padding: 20px 24px;
-      margin-bottom: 24px;
-      border-radius: 20px;
-      background: linear-gradient(90deg, #C7E5D3 0%, #E2F3E9 52%, #BFE0CD 100%);
-      border: 1.5px solid var(--border-green);
+      padding: 28px clamp(18px, 5vw, 64px) 24px;
+      background:
+        linear-gradient(90deg, rgba(14, 29, 56, 0.78) 0%, rgba(56, 22, 48, 0.65) 50%, rgba(56, 14, 27, 0.78) 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    .top-banner h1 {
+    .handwriting-title {
       margin: 0;
-      width: 100%;
-      font-size: clamp(28px, 5.4vw, 52px);
+      padding: 0;
+      border: none;
+      background: none;
+      font-family: "Dancing Script", "Caveat", cursive;
+      font-size: clamp(42px, 7.2vw, 78px);
+      font-weight: 700;
       font-style: italic;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--green-dark);
-      text-shadow: 0 2px 0 rgba(255, 255, 255, 0.85);
+      letter-spacing: 1px;
+      line-height: 1.05;
+      text-align: left;
+      cursor: pointer;
+      color: #FFF4F7;
+      text-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.45),
+        0 0 28px rgba(245, 220, 227, 0.25);
+      transition: transform 0.18s ease, opacity 0.18s ease;
     }
 
-    /* Altında profil kısmı (solda) ve sağda ana sayfa / işlem butonları */
-    .main-grid {
+    .handwriting-title:hover {
+      transform: translateX(4px);
+      opacity: 0.95;
+    }
+
+    .capcut-trigger {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.2s ease;
+    }
+
+    .capcut-trigger:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    /* Sıkışık kutu yerine geniş ekran akışı */
+    .full-flow {
+      width: 100%;
+      padding: 26px clamp(18px, 5vw, 64px) 0;
+    }
+
+    .ornament-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 10px 0 22px;
+      color: rgba(255, 255, 255, 0.65);
+      font-family: "Caveat", cursive;
+      font-size: 20px;
+    }
+
+    .ornament-line::before,
+    .ornament-line::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(141, 174, 232, 0.45), rgba(226, 134, 161, 0.45));
+    }
+
+    /* Profil + Yan Yana Menü */
+    .top-workspace {
       display: grid;
-      grid-template-columns: minmax(270px, 1.1fr) 1.4fr;
-      gap: 22px;
+      grid-template-columns: minmax(280px, 1fr) 1.5fr;
+      gap: 24px;
       align-items: start;
+      margin-bottom: 34px;
     }
 
-    @media (max-width: 800px) {
-      .main-grid {
+    @media (max-width: 860px) {
+      .top-workspace {
         grid-template-columns: 1fr;
       }
     }
 
-    .card {
-      background: var(--surface-card);
-      border: 1.5px solid var(--border-green);
+    .glass-panel {
+      background: var(--blend-surface);
+      border: 1px solid rgba(255, 255, 255, 0.55);
       border-radius: 20px;
-      padding: 18px 20px;
-      box-shadow: 0 6px 16px rgba(37, 78, 57, 0.07);
+      padding: 20px 22px;
+      box-shadow: 0 14px 32px rgba(9, 15, 30, 0.24);
+      backdrop-filter: blur(10px);
     }
 
-    .profile-head {
+    .profile-row {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       margin-bottom: 12px;
     }
 
-    .avatar {
-      width: 68px;
-      height: 68px;
+    .avatar-circle {
+      width: 74px;
+      height: 74px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #CBE8D7, #98C5AC);
-      border: 2px solid var(--green-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      color: var(--green-dark);
-      overflow: hidden;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--navy-glow), var(--burgundy-glow));
       flex-shrink: 0;
     }
 
-    .avatar img {
+    .avatar-circle-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #1C2338;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      overflow: hidden;
+    }
+
+    .avatar-circle-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .profile-name {
-      margin: 0;
-      font-size: 19px;
-      color: var(--green-dark);
-    }
-
-    .profile-sub {
-      font-family: "Trebuchet MS", sans-serif;
-      font-size: 12px;
-      color: var(--ink-soft);
-    }
-
-    .profile-bio {
-      margin: 0 0 12px;
-      font-size: 14px;
-      color: var(--ink-main);
-    }
-
-    .right-column {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    /* Yan yana görünen sekmeler / bağlantılar */
-    .nav-row {
+    .menu-strip {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      background: var(--surface-card);
-      border: 1.5px solid var(--border-green);
-      border-radius: 18px;
-      padding: 12px 14px;
-      box-shadow: 0 6px 16px rgba(37, 78, 57, 0.07);
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .nav-btn {
-      flex: 1 1 auto;
-      padding: 9px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border-green);
-      background: var(--green-soft);
-      color: var(--green-dark);
-      font-family: "Trebuchet MS", sans-serif;
-      font-size: 12.5px;
+    .menu-btn {
+      flex: 1 1 140px;
+      padding: 11px 16px;
+      border-radius: 13px;
+      border: 1px solid rgba(44, 26, 60, 0.22);
+      background: var(--blend-card);
+      color: var(--ink-dark);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 13.5px;
       font-weight: 700;
       cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.12s ease;
+      transition: all 0.16s ease;
     }
 
-    .nav-btn:hover {
-      background: #BBE0CC;
+    .menu-btn:hover {
+      background: #FFFFFF;
       transform: translateY(-1px);
     }
 
-    .nav-btn.active {
-      background: var(--green-dark);
+    .menu-btn.active {
+      background: linear-gradient(135deg, var(--navy-mid), var(--burgundy-mid));
       color: #FFFFFF;
-      border-color: var(--green-dark);
+      border-color: transparent;
     }
 
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      color: var(--green-dark);
+    /* Create tıklandığında çıkan İrem mi Melek mi seçimi */
+    .twin-choice-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .choice-melek,
+    .choice-irem {
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.14s ease, box-shadow 0.14s ease;
+    }
+
+    .choice-melek {
+      background: var(--navy-tint);
+      color: var(--navy-deep);
+      border: 2px solid var(--navy-mid);
+    }
+
+    .choice-irem {
+      background: var(--burgundy-tint);
+      color: var(--burgundy-deep);
+      border: 2px solid var(--burgundy-mid);
+    }
+
+    .choice-melek.selected {
+      background: var(--navy-mid);
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(26, 50, 94, 0.35);
+    }
+
+    .choice-irem.selected {
+      background: var(--burgundy-mid);
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(99, 24, 46, 0.35);
     }
 
     input, textarea, select {
       width: 100%;
-      padding: 9px 12px;
+      padding: 10px 13px;
       border-radius: 11px;
-      border: 1px solid var(--border-green);
-      background: #F9FCFA;
-      font-family: "Trebuchet MS", sans-serif;
+      border: 1px solid rgba(44, 26, 60, 0.24);
+      background: rgba(255, 255, 255, 0.95);
+      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 13.5px;
-      color: var(--ink-main);
+      color: var(--ink-dark);
     }
 
-    .btn-green {
-      padding: 9px 15px;
+    .btn-blend {
+      padding: 10px 16px;
       border-radius: 11px;
       border: none;
-      background: var(--green-dark);
+      background: linear-gradient(135deg, var(--navy-mid), var(--burgundy-mid));
       color: #FFFFFF;
-      font-family: "Trebuchet MS", sans-serif;
+      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
     }
 
-    .btn-green:hover {
-      background: var(--green-main);
-    }
-
-    .btn-outline {
-      padding: 6px 12px;
+    .btn-soft {
+      padding: 7px 12px;
       border-radius: 10px;
-      border: 1px solid var(--border-green);
-      background: var(--surface-light);
-      color: var(--green-dark);
-      font-family: "Trebuchet MS", sans-serif;
+      border: 1px solid rgba(44, 26, 60, 0.22);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--ink-dark);
+      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
     }
 
@@ -232,80 +302,125 @@
       gap: 10px;
     }
 
-    .item-box {
-      padding: 11px 13px;
-      border-radius: 12px;
-      background: var(--surface-light);
-      border: 1px solid #C5DFD0;
-      font-family: "Trebuchet MS", sans-serif;
-      font-size: 13px;
-    }
-
-    /* Bu bağlantıların altında yayınlanmış kitapların görünmesi için boşluk */
-    .books-gap {
-      height: 36px;
-    }
-
-    .books-area {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1.5px dashed var(--border-green);
-      border-radius: 22px;
-      padding: 22px 24px 28px;
-    }
-
-    .books-area h2 {
-      margin: 0 0 16px;
-      font-size: 22px;
-      font-style: italic;
-      color: var(--green-dark);
-    }
-
-    .books-grid {
+    /* Ekranı genişçe kullanan İkiz Kitap Alanları + Hafif Sisli Atmosfer Süslemeleri */
+    .twins-showcase {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-bottom: 26px;
     }
 
-    .book-card {
-      background: var(--surface-card);
-      border: 1.5px solid var(--border-green);
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: 0 6px 14px rgba(37, 78, 57, 0.08);
+    @media (max-width: 860px) {
+      .twins-showcase {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .book-tag {
-      display: inline-block;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: var(--green-soft);
-      color: var(--green-dark);
-      font-family: "Trebuchet MS", sans-serif;
-      font-size: 11px;
-      font-weight: 700;
+    .twin-zone {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 290px;
+      box-shadow: 0 16px 34px rgba(8, 12, 24, 0.28);
+    }
+
+    /* Lacivert kısım: sisli derinlik ve hafif asker/sancak silüeti süslemesi */
+    .twin-zone.melek-zone {
+      color: #F4F7FC;
+      border: 1px solid rgba(154, 184, 238, 0.36);
+      background:
+        radial-gradient(circle at 82% 76%, rgba(190, 212, 247, 0.22), transparent 48%),
+        radial-gradient(circle at 15% 15%, rgba(65, 112, 196, 0.32), transparent 55%),
+        linear-gradient(160deg, var(--navy-deep) 0%, var(--navy-mid) 65%, #122344 100%);
+    }
+
+    /* Bordo kısım: sisli derinlik ve hafif kedi silüeti süslemesi */
+    .twin-zone.irem-zone {
+      color: #FDF4F6;
+      border: 1px solid rgba(235, 162, 184, 0.36);
+      background:
+        radial-gradient(circle at 84% 78%, rgba(247, 198, 212, 0.22), transparent 48%),
+        radial-gradient(circle at 18% 15%, rgba(166, 46, 82, 0.32), transparent 55%),
+        linear-gradient(160deg, var(--burgundy-deep) 0%, var(--burgundy-mid) 65%, #461121 100%);
+    }
+
+    /* Hafif sis katmanı */
+    .mist-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(225, 235, 248, 0.11) 100%);
+      backdrop-filter: blur(1.5px);
+    }
+
+    /* Arka planda sade silüet süslemeleri */
+    .bg-silhouette {
+      position: absolute;
+      right: 14px;
+      bottom: 10px;
+      width: 145px;
+      height: 145px;
+      opacity: 0.16;
+      pointer-events: none;
+      filter: blur(0.6px);
+    }
+
+    .zone-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .zone-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       margin-bottom: 8px;
     }
 
-    .book-title {
-      margin: 0 0 6px;
-      font-size: 17px;
-      color: var(--green-dark);
+    .zone-title {
+      margin: 0;
+      font-size: 23px;
+      font-style: italic;
     }
 
-    .book-desc {
-      margin: 0 0 10px;
-      font-size: 13.5px;
-      color: var(--ink-soft);
+    .zone-pill {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
-    .chapter-chip {
-      margin-top: 6px;
-      padding: 7px 10px;
-      border-radius: 10px;
-      background: var(--surface-light);
-      border: 1px solid #CFE5D8;
-      font-family: "Trebuchet MS", sans-serif;
+    .zone-chapter-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 13px;
+    }
+
+    /* Sağ alt bildirim */
+    .notif-footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .notif-card {
+      width: min(390px, 100%);
+      background: var(--blend-surface);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 16px;
+      padding: 12px 16px;
+      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 12.5px;
+      box-shadow: 0 10px 24px rgba(8, 12, 24, 0.22);
     }
 
     .hidden {
@@ -314,111 +429,391 @@
   </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="top-banner">
-      <h1>İYİ ki DOĞDUNUZ!</h1>
-    </header>
+  <!-- Ekranın tamamını kullanan el yazısı başlık şeridi -->
+  <header class="full-header">
+    <button class="handwriting-title" type="button" onclick="toggleCapcutArea()">
+      İyi ki Doğdunuz!
+    </button>
+    <button class="capcut-trigger" type="button" onclick="toggleCapcutArea()">
+      🎬 CapCut Doğum Günü Videosu
+    </button>
+  </header>
 
-    <div class="main-grid">
-      <!-- Profil kısmı -->
-      <aside class="card">
-        <div class="profile-head">
-          <div class="avatar" id="avatarBox">🌿</div>
+  <main class="full-flow">
+    <!-- CapCut video bağlantısı alanı -->
+    <section class="glass-panel hidden" id="capcutArea" style="margin-bottom:20px;">
+      <h2 style="margin:0 0 8px; font-size:19px;">Doğum Günü Videosu Bağlantısı</h2>
+      <p style="margin:0 0 10px; font-size:13.5px; color:var(--ink-muted);">
+        CapCut'ta hazırladığın doğum günü / anı videosunun linkini buraya ekleyebilirsin.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <input type="url" id="capcutUrlInput" placeholder="https://..." style="flex:1 1 260px;">
+        <button class="btn-blend" type="button" onclick="saveCapcutLink()">Kaydet ve Aç</button>
+      </div>
+      <div id="capcutLinkStatus" style="margin-top:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px;"></div>
+    </section>
+
+    <div class="ornament-line">✦ Melek & İrem ✦</div>
+
+    <!-- Profil + Yan Yana Menü -->
+    <section class="top-workspace">
+      <aside class="glass-panel">
+        <div class="profile-row">
+          <div class="avatar-circle">
+            <div class="avatar-circle-inner" id="avatarSlot">✦</div>
+          </div>
           <div>
-            <h2 class="profile-name" id="profileNameText">Yazar Adı</h2>
-            <div class="profile-sub">Evren & Hikaye Defteri</div>
+            <h2 style="margin:0; font-size:20px;" id="profileName">Profil & Biyografi</h2>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--ink-muted);">
+              Lacivert & Bordo Evren Defteri
+            </div>
           </div>
         </div>
-        <p class="profile-bio" id="profileBioText">
-          Kendi evrenlerini, karakterlerini ve yeni bölümlerini burada topluyor.
+        <p style="margin:0 0 12px; font-size:14px; color:var(--ink-muted);" id="profileBio">
+          İkizlerin dünyaları, yeni bölümler ve doğum günü notları burada buluşuyor.
         </p>
-        <button class="btn-outline" type="button" onclick="toggleProfileEditor()">Profili Düzenle</button>
+        <button class="btn-soft" type="button" onclick="toggleProfileForm()">Profili Düzenle</button>
 
-        <form class="stack hidden" id="profileEditor" style="margin-top:12px;" onsubmit="saveProfile(event)">
-          <input type="text" id="nameInput" placeholder="İsim veya mahlas...">
-          <input type="url" id="avatarInput" placeholder="Profil fotoğrafı linki (isteğe bağlı)...">
-          <textarea id="bioInput" rows="2" placeholder="Biyografi yaz..."></textarea>
+        <form class="stack hidden" id="profileForm" style="margin-top:12px; padding-top:12px; border-top:1px dashed rgba(44,26,60,0.2);" onsubmit="saveProfile(event)">
+          <input type="text" id="pNameInput" placeholder="Başlık veya isim...">
+          <input type="url" id="pAvatarInput" placeholder="Profil fotoğrafı linki (isteğe bağlı)...">
+          <textarea id="pBioInput" rows="2" placeholder="Biyografi yaz..."></textarea>
           <div>
-            <button class="btn-green" type="submit">Kaydet</button>
+            <button class="btn-blend" type="submit">Kaydet</button>
           </div>
         </form>
       </aside>
 
-      <!-- Sağda ana sayfa / yan yana bağlantılar ve aktif panel -->
-      <section class="right-column">
-        <nav class="nav-row" aria-label="Sayfa Bölümleri">
-          <button class="nav-btn active" id="tab-home" type="button" onclick="showSection('home')">Ana Sayfa</button>
-          <button class="nav-btn" id="tab-create" type="button" onclick="showSection('create')">Create New Chapter</button>
-          <button class="nav-btn" id="tab-notes" type="button" onclick="showSection('notes')">Kişisel Notluk</button>
-          <button class="nav-btn" id="tab-edit" type="button" onclick="showSection('edit')">Bölüm Düzenleme</button>
-          <button class="nav-btn" id="tab-notif" type="button" onclick="showSection('notif')">Bildirimler (<span id="notifBadge">2</span>)</button>
-        </nav>
-
-        <!-- Ana Sayfa özeti -->
-        <div class="card" id="sec-home">
-          <h2>Ana Sayfa</h2>
-          <p style="margin:0; color:var(--ink-soft); font-size:14.5px;">
-            Üstteki sekmelerden yeni bölüm yazabilir, kişisel notlarını tutabilir, mevcut bölümleri düzenleyebilir ve bildirimleri takip edebilirsin. Yayınlanmış kitaplar aşağıda listelenir.
-          </p>
+      <div>
+        <div class="menu-strip">
+          <button class="menu-btn active" id="tab-create" type="button" onclick="openTab('create')">Create</button>
+          <button class="menu-btn" id="tab-edit" type="button" onclick="openTab('edit')">Düzenle</button>
+          <button class="menu-btn" id="tab-notes" type="button" onclick="openTab('notes')">Notluk</button>
         </div>
 
-        <!-- Create New Chapter -->
-        <div class="card hidden" id="sec-create">
-          <h2>Create New Chapter</h2>
-          <form class="stack" onsubmit="createChapter(event)">
-            <select id="bookSelect">
-              <option value="Kışın Gölgeleri">Kışın Gölgeleri</option>
-              <option value="Zümrüt Saray Notları">Zümrüt Saray Notları</option>
-            </select>
-            <input type="text" id="newChapterTitle" placeholder="Bölüm başlığı..." required>
-            <textarea id="newChapterText" rows="3" placeholder="Bölüm metni..." required></textarea>
+        <!-- Create: Önce İrem mi Melek mi sorusu -->
+        <section class="glass-panel" id="panel-create">
+          <h2 style="margin:0 0 10px; font-size:19px;">Kimin Kitabına Bölüm Yazacaksın?</h2>
+          <div class="twin-choice-row">
+            <button class="choice-melek selected" id="chooseMelekBtn" type="button" onclick="pickTwin('melek')">
+              Melek (Lacivert)
+            </button>
+            <button class="choice-irem" id="chooseIremBtn" type="button" onclick="pickTwin('irem')">
+              İrem (Bordo)
+            </button>
+          </div>
+
+          <form class="stack" onsubmit="addNewChapter(event)">
+            <input type="hidden" id="selectedTwinValue" value="melek">
+            <div id="activeTargetLabel" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:700; color:var(--navy-mid);">
+              Seçili Kitap: Melek'in Kitabı (Lacivert)
+            </div>
+            <input type="text" id="newTitleInput" placeholder="Bölüm başlığı..." required>
+            <textarea id="newBodyInput" rows="3" placeholder="Bölümü yaz..." required></textarea>
             <div>
-              <button class="btn-green" type="submit">Yayınla</button>
+              <button class="btn-blend" type="submit">Bölümü Kaydet</button>
             </div>
           </form>
-        </div>
+        </section>
 
-        <!-- Kişisel Notluk -->
-        <div class="card hidden" id="sec-notes">
-          <h2>Kişisel Notluk</h2>
-          <textarea id="notesArea" rows="4" placeholder="Fikirler, karakter notları, sahne taslakları..."></textarea>
+        <!-- Düzenle -->
+        <section class="glass-panel hidden" id="panel-edit">
+          <h2 style="margin:0 0 10px; font-size:19px;">Bölüm Düzenleme</h2>
+          <div class="stack" id="editChaptersBox"></div>
+        </section>
+
+        <!-- Notluk -->
+        <section class="glass-panel hidden" id="panel-notes">
+          <h2 style="margin:0 0 10px; font-size:19px;">Kişisel Notluk</h2>
+          <textarea id="notesInput" rows="4" placeholder="Notlarını buraya yaz..."></textarea>
           <div style="margin-top:10px;">
-            <button class="btn-green" type="button" onclick="saveNotes()">Notu Kaydet</button>
-            <span id="noteSavedText" style="font-family:'Trebuchet MS',sans-serif; font-size:12.5px; color:var(--green-dark); margin-left:8px;"></span>
+            <button class="btn-blend" type="button" onclick="saveNotes()">Notu Kaydet</button>
+            <span id="notesSavedNote" style="margin-left:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:600;"></span>
           </div>
-        </div>
+        </section>
+      </div>
+    </section>
 
-        <!-- Bölüm Düzenleme -->
-        <div class="card hidden" id="sec-edit">
-          <h2>Bölüm Düzenleme</h2>
-          <div class="stack" id="editList"></div>
+    <!-- Ekranı genişçe kullanan Lacivert (Melek) & Bordo (İrem) alanları -->
+    <section class="twins-showcase" aria-label="Melek ve İrem Kitap Alanları">
+      <!-- Melek: Lacivert + hafif sisli asker silüeti -->
+      <article class="twin-zone melek-zone">
+        <div class="mist-overlay"></div>
+        <svg class="bg-silhouette" viewBox="0 0 120 120" fill="currentColor" aria-hidden="true">
+          <circle cx="60" cy="24" r="10"/>
+          <path d="M36 42h48l-5 24H41l-5-24zm8 28h32l6 42H38l6-42z"/>
+          <rect x="88" y="18" width="4" height="94"/>
+          <path d="M92 20l22 10-22 10V20z"/>
+        </svg>
+        <div class="zone-content">
+          <div class="zone-top">
+            <h2 class="zone-title">Melek'in Yarattığı Kitap</h2>
+            <span class="zone-pill">LACİVERT</span>
+          </div>
+          <p style="margin:0 0 10px; font-size:13.5px; opacity:0.88;">
+            Derin lacivert gecelerde geçen bölümler ve evren notları.
+          </p>
+          <div id="melekChaptersArea"></div>
         </div>
+      </article>
 
-        <!-- Bildirimler -->
-        <div class="card hidden" id="sec-notif">
-          <h2>Bildirimler</h2>
-          <div class="stack" id="notifList"></div>
+      <!-- İrem: Bordo + hafif sisli kedi silüeti -->
+      <article class="twin-zone irem-zone">
+        <div class="mist-overlay"></div>
+        <svg class="bg-silhouette" viewBox="0 0 120 120" fill="currentColor" aria-hidden="true">
+          <path d="M34 46L26 22l20 14c4-2 9-3 14-3s10 1 14 3l20-14-8 24c4 5 6 11 6 18 0 18-16 32-36 32s-36-14-36-32c0-7 2-13 6-18z"/>
+          <path d="M24 94c-10 2-16 9-14 16" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="zone-content">
+          <div class="zone-top">
+            <h2 class="zone-title">İrem'in Yarattığı Kitap</h2>
+            <span class="zone-pill">BORDO</span>
+          </div>
+          <p style="margin:0 0 10px; font-size:13.5px; opacity:0.88;">
+            Bordo tonlarda yazılan bölümler, karakterler ve hikayeler.
+          </p>
+          <div id="iremChaptersArea"></div>
         </div>
-      </section>
+      </article>
+    </section>
+
+    <!-- Sağ alt bildirim kutusu -->
+    <div class="notif-footer">
+      <aside class="notif-card">
+        <div style="display:flex; justify-content:space-between; font-weight:700; margin-bottom:4px;">
+          <span>🔔 Bildirim</span>
+          <span id="notifCount">1</span>
+        </div>
+        <div id="notifMessage">Bordo & lacivert evren defteri hazır.</div>
+      </aside>
     </div>
-
-    <!-- Yayınlanmış kitaplar için boşluk -->
-    <div class="books-gap"></div>
-
-    <!-- Yayınlanmış Kitaplar -->
-    <main class="books-area" id="publishedBooksArea">
-      <h2>Yayınlanmış Kitaplar</h2>
-      <div class="books-grid" id="booksGrid"></div>
-    </main>
-  </div>
+  </main>
 
   <script>
-    const data = {
+    const appData = {
+      capcutUrl: "",
       profile: {
-        name: "Yazar Adı",
+        name: "Profil & Biyografi",
         avatar: "",
-        bio: "Kendi evrenlerini, karakterlerini ve yeni bölümlerini burada topluyor."
+        bio: "İkizlerin dünyaları, yeni bölümler ve doğum günü notları burada buluşuyor."
       },
-      books: [
-        {
-          title: "
+      notes: "",
+      notifications: ["Bordo & lacivert evren defteri hazır."],
+      books: {
+        melek: {
+          label: "Melek'in Kitabı (Lacivert)",
+          chapters: [
+            { title: "Bölüm 1", body: "Lacivert sisin ardında ilk bölüm yazılmayı bekliyor." }
+          ]
+        },
+        irem: {
+          label: "İrem'in Kitabı (Bordo)",
+          chapters: [
+            { title: "Bölüm 1", body: "Bordo gölgelerin arasında ilk bölüm yazılmayı bekliyor." }
+          ]
+        }
+      }
+    };
+
+    function loadAppData() {
+      try {
+        const raw = localStorage.getItem("melekIremTwinStudioV2");
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (typeof parsed.capcutUrl === "string") appData.capcutUrl = parsed.capcutUrl;
+        if (parsed.profile) appData.profile = { ...appData.profile, ...parsed.profile };
+        if (typeof parsed.notes === "string") appData.notes = parsed.notes;
+        if (Array.isArray(parsed.notifications) && parsed.notifications.length) {
+          appData.notifications = parsed.notifications;
+        }
+        if (parsed.books?.melek?.chapters) appData.books.melek.chapters = parsed.books.melek.chapters;
+        if (parsed.books?.irem?.chapters) appData.books.irem.chapters = parsed.books.irem.chapters;
+      } catch (e) {}
+    }
+
+    function saveAppData() {
+      try {
+        localStorage.setItem("melekIremTwinStudioV2", JSON.stringify(appData));
+      } catch (e) {}
+    }
+
+    function notify(msg) {
+      appData.notifications.unshift(msg);
+      document.getElementById("notifCount").textContent = appData.notifications.length;
+      document.getElementById("notifMessage").textContent = msg;
+    }
+
+    function toggleCapcutArea() {
+      document.getElementById("capcutArea").classList.toggle("hidden");
+      document.getElementById("capcutUrlInput").value = appData.capcutUrl;
+      renderCapcutStatus();
+    }
+
+    function renderCapcutStatus() {
+      const el = document.getElementById("capcutLinkStatus");
+      if (appData.capcutUrl) {
+        el.innerHTML = `Kayıtlı Link: <a href="${escAttr(appData.capcutUrl)}" target="_blank" rel="noopener noreferrer">${escHtml(appData.capcutUrl)}</a>`;
+      } else {
+        el.textContent = "Henüz video linki eklenmedi.";
+      }
+    }
+
+    function saveCapcutLink() {
+      const url = document.getElementById("capcutUrlInput").value.trim();
+      appData.capcutUrl = url;
+      if (url) {
+        notify("CapCut doğum günü video linki kaydedildi.");
+        saveAppData();
+        renderCapcutStatus();
+        window.open(url, "_blank", "noopener,noreferrer");
+      } else {
+        saveAppData();
+        renderCapcutStatus();
+      }
+    }
+
+    function renderProfile() {
+      document.getElementById("profileName").textContent = appData.profile.name;
+      document.getElementById("profileBio").textContent = appData.profile.bio;
+      document.getElementById("pNameInput").value = appData.profile.name;
+      document.getElementById("pAvatarInput").value = appData.profile.avatar;
+      document.getElementById("pBioInput").value = appData.profile.bio;
+
+      const slot = document.getElementById("avatarSlot");
+      if (appData.profile.avatar) {
+        slot.innerHTML = `<img src="${escAttr(appData.profile.avatar)}" alt="Profil">`;
+      } else {
+        slot.textContent = "✦";
+      }
+    }
+
+    function toggleProfileForm() {
+      document.getElementById("profileForm").classList.toggle("hidden");
+    }
+
+    function saveProfile(e) {
+      e.preventDefault();
+      appData.profile.name = document.getElementById("pNameInput").value.trim() || "Profil & Biyografi";
+      appData.profile.avatar = document.getElementById("pAvatarInput").value.trim();
+      appData.profile.bio = document.getElementById("pBioInput").value.trim();
+      notify("Profil bilgileri güncellendi.");
+      saveAppData();
+      renderProfile();
+      document.getElementById("profileForm").classList.add("hidden");
+    }
+
+    function openTab(tab) {
+      ["create", "edit", "notes"].forEach((t) => {
+        document.getElementById("panel-" + t).classList.toggle("hidden", t !== tab);
+        document.getElementById("tab-" + t).classList.toggle("active", t === tab);
+      });
+      if (tab === "edit") renderEditBox();
+    }
+
+    function pickTwin(who) {
+      document.getElementById("selectedTwinValue").value = who;
+      const mBtn = document.getElementById("chooseMelekBtn");
+      const iBtn = document.getElementById("chooseIremBtn");
+      const label = document.getElementById("activeTargetLabel");
+
+      if (who === "melek") {
+        mBtn.classList.add("selected");
+        iBtn.classList.remove("selected");
+        label.textContent = "Seçili Kitap: Melek'in Kitabı (Lacivert)";
+        label.style.color = "var(--navy-mid)";
+      } else {
+        iBtn.classList.add("selected");
+        mBtn.classList.remove("selected");
+        label.textContent = "Seçili Kitap: İrem'in Kitabı (Bordo)";
+        label.style.color = "var(--burgundy-mid)";
+      }
+    }
+
+    function addNewChapter(e) {
+      e.preventDefault();
+      const who = document.getElementById("selectedTwinValue").value === "irem" ? "irem" : "melek";
+      const title = document.getElementById("newTitleInput").value.trim();
+      const body = document.getElementById("newBodyInput").value.trim();
+      if (!title || !body) return;
+
+      appData.books[who].chapters.push({ title, body });
+      notify(`${appData.books[who].label} bölümüne "${title}" eklendi.`);
+      saveAppData();
+
+      document.getElementById("newTitleInput").value = "";
+      document.getElementById("newBodyInput").value = "";
+      renderTwinAreas();
+      openTab("edit");
+    }
+
+    function renderEditBox() {
+      const box = document.getElementById("editChaptersBox");
+      box.innerHTML = "";
+      ["melek", "irem"].forEach((who) => {
+        const book = appData.books[who];
+        book.chapters.forEach((ch, idx) => {
+          const item = document.createElement("div");
+          item.style.cssText = "padding:12px; border-radius:12px; background:rgba(255,255,255,0.75); border:1px solid rgba(44,26,60,0.16);";
+          item.innerHTML = `
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:12.5px; margin-bottom:6px;">${escHtml(book.label)}</div>
+            <input type="text" id="ed-title-${who}-${idx}" value="${escAttr(ch.title)}" style="margin-bottom:6px;">
+            <textarea id="ed-body-${who}-${idx}" rows="2" style="margin-bottom:6px;">${escHtml(ch.body)}</textarea>
+            <button class="btn-blend" type="button" onclick="saveEdited('${who}', ${idx})">Kaydet</button>
+          `;
+          box.appendChild(item);
+        });
+      });
+    }
+
+    function saveEdited(who, idx) {
+      const title = document.getElementById(`ed-title-${who}-${idx}`).value.trim();
+      const body = document.getElementById(`ed-body-${who}-${idx}`).value.trim();
+      if (!title) return;
+      appData.books[who].chapters[idx] = { title, body };
+      notify(`"${title}" bölümü düzenlendi.`);
+      saveAppData();
+      renderTwinAreas();
+    }
+
+    function saveNotes() {
+      appData.notes = document.getElementById("notesInput").value;
+      saveAppData();
+      const noteEl = document.getElementById("notesSavedNote");
+      noteEl.textContent = "Kaydedildi ✓";
+      setTimeout(() => { noteEl.textContent = ""; }, 2000);
+    }
+
+    function renderTwinAreas() {
+      ["melek", "irem"].forEach((who) => {
+        const area = document.getElementById(`${who}ChaptersArea`);
+        area.innerHTML = appData.books[who].chapters
+          .map((c) => `
+            <div class="zone-chapter-box">
+              <strong>${escHtml(c.title)}:</strong> ${escHtml(c.body)}
+            </div>
+          `)
+          .join("");
+      });
+    }
+
+    function escHtml(s) {
+      return String(s)
+        .replace(/&/g, "&")
+        .replace(/</g, "<")
+        .replace(/>/g, ">")
+        .replace(/"/g, """);
+    }
+
+    function escAttr(s) {
+      return escHtml(s).replace(/'/g, "'");
+    }
+
+    loadAppData();
+    renderProfile();
+    document.getElementById("notesInput").value = appData.notes;
+    document.getElementById("notifCount").textContent = appData.notifications.length;
+    document.getElementById("notifMessage").textContent = appData.notifications[0] || "";
+    renderTwinAreas();
+  </script>
+</body>
+</html>
