@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doğum Günü Evreni — Yazarlık Defteri</title>
+  <style>
+    :root {
+      --bg-green: #DCECE2;
+      --paper-pink: #FFF0F5;
+      --accent-rose: #C98EAD;
+      --deep-rose: #9A5F82;
+      --accent-blue: #91AED3;
+      --soft-blue: #DCEAF8;
+      --ink-color: #3E2D38;
+      --muted-ink: #6E5565;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 18px 60px;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink-color);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(243, 198, 220, 0.5), transparent 42%),
+        radial-gradient(circle at 88% 18%, rgba(145, 174, 211, 0.38), transparent 42%),
+        linear-gradient(180deg, #E8F3EC 0%, var(--bg-green) 60%, #C7DEC9 100%);
+      line-height: 1.7;
+    }
+
+    .site-shell {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--paper-pink);
+      border: 2px solid var(--accent-rose);
+      border-radius: 24px;
+      padding: 28px 26px 34px;
+      box-shadow:
+        0 14px 36px rgba(154, 95, 130, 0.16),
+        inset 0 0 0 6px rgba(255, 255, 255, 0.55);
+    }
+
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      border-bottom: 1px dashed var(--accent-rose);
+    }
+
+    .link-group, .view-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ext-link, .view-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-family: "Trebuchet MS", sans-serif;
+      font-size: 13.5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .ext-link {
+      background: var(--soft-blue);
+      color: #365273;
+      border: 1px solid var(--accent-blue);
+    }
+
+    .ext-link:hover {
+      background: #C6DDF5;
+      transform: translateY(-1px);
+    }
+
+    .view-btn {
+      background: #FFFFFF;
+      color: var(--deep-rose);
+      border: 1px solid var(--accent-rose);
+      font-weight: 600;
+    }
+
+    .view-btn.active {
+      background: var(--accent-rose);
+      color: #FFFFFF;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #E3B6CD;
+      color: var(--deep-rose);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 12.5px;
+      font-family: "Trebuchet MS", sans-serif;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4.5vw, 38px);
+      color: var(--deep-rose);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      margin: 0 0 24px;
+      color: var(--muted-ink);
+      font-size: 15.5px;
+    }
+
+    .placeholder-box {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid #E5B9CF;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .placeholder-box h2 {
+      margin: 0 0 8px;
+      font-size: 19px;
+      color: var(--deep-rose);
+    }
+
+    .placeholder-box p {
+      margin: 0;
+      color: var(--muted-ink);
+      font-size: 14.5px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="top-bar">
+      <nav class="link-group" aria-label="Hızlı Bağlantılar">
+        <a class="ext-link" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a class="ext-link" href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
+        <a class="ext-link" href="https://web.whatsapp.com" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </nav>
+
+      <div class="view-group">
+        <button class="view-btn active" id="btn-main" type="button" onclick="setView('main')">Ana Sayfa</button>
+        <button class="view-btn" id="btn-notes" type="button" onclick="setView('notes')">Kişisel Notluk</button>
+      </div>
+    </header>
+
+    <main id="view-main">
+      <span class="hero-tag">✦ DOĞUM GÜNÜ ÖZEL YAZARLIK ALANI ✦</span>
+      <h1>Yeni Yaş, Yeni Dünyalar</h1>
+      <p class="hero-sub">
+        Ana gövde şu an hazır. Buraya sırayla evren/kitap kartlarını, okuma & karakter sekmelerini, yorum alanını ve kişisel notluğu ekleyeceğiz.
+      </p>
+
+     <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✦ Doğum Günü Köşesi — Chrome Giriş</title>
+  <style>
+    :root {
+      --bg-green: #DCECE2;
+      --bg-green-deep: #C6DFD1;
+      --card-pink: #FFF3F8;
+      --card-white: #FFFFFF;
+      --rose-border: #D49BB8;
+      --rose-deep: #96567B;
+      --blue-soft: #E1EEFA;
+      --blue-border: #97B7DC;
+      --text-main: #3D2A36;
+      --text-sub: #6D5263;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 36px 18px 64px;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text-main);
+      background-color: var(--bg-green);
+      background-image:
+        radial-gradient(rgba(150, 86, 123, 0.13) 1px, transparent 1px),
+        radial-gradient(circle at 15% 15%, rgba(247, 203, 224, 0.55), transparent 42%),
+        radial-gradient(circle at 85% 18%, rgba(151, 183, 220, 0.42), transparent 42%),
+        linear-gradient(180deg, #EBF5EF 0%, var(--bg-green) 58%, var(--bg-green-deep) 100%);
+      background-size: 22px 22px, 100% 100%, 100% 100%, 100% 100%;
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card-pink);
+      border: 2px solid var(--rose-border);
+      border-radius: 26px;
+      padding: 28px 26px 34px;
+      box-shadow:
+        0 16px 36px rgba(150, 86, 123, 0.16),
+        inset 0 0 0 6px rgba(255, 255, 255, 0.65);
+    }
+
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      border-bottom: 1.5px dashed var(--rose-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #F8CEE2, var(--blue-soft));
+      border: 1.5px solid var(--rose-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: bold;
+      font-style: italic;
+      color: var(--rose-deep);
+    }
+
+    .brand-tag {
+      font-family: "Trebuchet MS", sans-serif;
+      font-size: 11.5px;
+      color: var(--text-sub);
+    }
+
+    .quick-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill-link, .pill-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-family: "Trebuchet MS", sans-serif;
+      font-size: 13px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .pill-link {
+      background: var(--blue-soft);
+      color: #325073;
+      border: 1px solid var(--blue-border);
+    }
+
+    .pill-link:hover {
+      background: #CCE2F7;
+      transform: translateY(-1px);
+    }
+
+    .pill-btn {
+      background: var(--card-white);
+      color: var(--rose-deep);
+      border: 1px solid var(--rose-border);
+      font-weight: 600;
+    }
+
+    .pill-btn.active {
+      background: var(--rose-deep);
+      color: #FFFFFF;
+      border-color: var(--rose-deep);
+    }
+
+    /* Chrome'daki gibi hızlı kısayol çubuğu (yt, pin, wa yazıp Enter basınca açar) */
+    .shortcut-box {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid #E5B9CF;
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin-bottom: 22px;
+    }
+
+    .shortcut-title {
+      font-family: "Trebuchet MS", sans-serif;
+      font-size: 13px;
+      color: var(--rose-deep);
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .shortcut-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .shortcut-input {
+      flex: 1 1 220px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--rose-border);
+      background: #FFFDFD;
+      font-family: "Trebuchet MS", sans-serif;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .go-btn {
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: none;
+      background: var(--rose-deep);
+      color: #FFFFFF;
+      font-family: "Trebuchet MS", sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .go-btn:hover {
+      opacity: 0.92;
+    }
+
+    .shortcut-hint {
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: var(--text-sub);
+      font-family: "Trebuchet MS", sans-serif;
+    }
+
+    .welcome-card {
+      background: linear-gradient(125deg, rgba(248, 206, 226, 0.42), rgba(225, 238, 250, 0.5), rgba(220, 236, 226, 0.45));
+      border: 1px solid #E4B7CE;
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 4vw, 34px);
+      color: var(--rose-deep);
+      font-style: italic;
+    }
+
+    p {
+      margin: 0;
+      color: var(--text-sub);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header-row">
+      <div class="brand">
+        <div class="brand-icon">✦</div>
+        <div>
+          <div class="brand-name">Doğum Günü Evreni</div>
+          <div class="brand-tag">CHROME SAYFASI • KIZLARA ÖZEL KÖŞE</div>
+        </div>
+      </div>
+
+      <div class="quick-pills">
+        <a class="pill-link" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a class="pill-link" href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
+        <a class="pill-link" href="https://web.whatsapp.com" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <button class="pill-btn active" id="tabMain" type="button" onclick="switchView('main')">Giriş</button>
+        <button class="pill-btn" id="tabNotes" type="button" onclick="switchView('notes')">Kişisel Notluk</button>
+      </div>
+    </header>
+
+    <main id="viewMain">
+      <div class="shortcut-box">
+        <div class="shortcut-title">⚡ Hızlı Kısayol (`yt`, `pin`, `wa` yazıp Enter'a bas)</div>
+        <form class="shortcut-form" onsubmit="runShortcut(event)">
+          <input class="shortcut-input" id="shortcutInput" type="text" placeholder="Örn: yt, pin, wa veya arama kelimesi yaz...">
+          <button class="go-btn" type="submit">Aç</button>
+        </form>
+        <div class="shortcut-hint">Kısayollar: <b>yt</b> → YouTube, <b>pin</b> → Pinterest, <b>wa</b> → WhatsApp. Başka bir şey yazarsan Google'da arar.</div>
+      </div>
+
+      <section class="welcome-card">
+        <h1>İyi ki Doğdun, Yeni Sayfalara!</h1>
+        <p>
+          Ana Chrome sayfası hazır. Bir sonraki adımda buraya arkadaşının GoT tarzı eser/evren kartlarını, tıklayınca açılan okuma & karakter/fanart sekmelerini, yorum kısmını ve kişisel notluğu ekleyeceğiz.
+        </p>
+      </section>
+    </main>
+
+    <section id="viewNotes" class="hidden">
+      <div class="welcome-card">
+        <h1>Kişisel Notluk</h1>
+        <p>Bir sonraki adımda yalnızca tarayıcı hafızasında duran kişisel not defterini buraya bağlayacağız.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function switchView(view) {
+      const notesActive = view === "notes";
+      document.getElementById("viewMain").classList.toggle("hidden", notesActive);
+      document.getElementById("viewNotes").classList.toggle("hidden", !notesActive);
+      document.getElementById("tabMain").classList.toggle("active", !notesActive);
+      document.getElementById("tabNotes").classList.toggle("active", notesActive);
+    }
+
+    function runShortcut(e) {
+      e.preventDefault();
+      const raw = document.getElementById("shortcutInput").value.trim();
+      if (!raw) return;
+      const key = raw.toLowerCase();
+
+      const map = {
+        "yt": "https://www.youtube.com",
+        "youtube": "https://www.youtube.com",
+        "pin": "https://www.pinterest.com",
+        "pinterest": "https://www.pinterest.com",
+        "wa": "https://web.whatsapp.com",
+        "whatsapp": "https://web.whatsapp.com"
+      };
+
+      const target = map[key] || ("https://www.google.com/search?q=" + encodeURIComponent(raw));
+      window.open(target, "_blank", "noopener,noreferrer");
+    }
+  </script>
+</body>
+</html> 
