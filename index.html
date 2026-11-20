@@ -18,8 +18,8 @@
       --burgundy-mid: #63182E;
       --burgundy-glow: #942647;
       --burgundy-tint: #F5DCE3;
-      --blend-surface: rgba(247, 244, 249, 0.93);
-      --blend-card: rgba(255, 255, 255, 0.95);
+      --blend-surface: rgba(247, 244, 249, 0.94);
+      --blend-card: rgba(255, 255, 255, 0.96);
       --ink-dark: #181424;
       --ink-muted: #4A435C;
     }
@@ -38,6 +38,19 @@
         linear-gradient(125deg, #132445 0%, #2C1A3C 48%, #471222 100%);
       line-height: 1.65;
       overflow-x: hidden;
+    }
+
+    /* GİRİŞ ARKA PLAN OUTLINE HAT (BEYAZ SAYFA VE EKRANLARIN ARKASINDA) */
+    .bg-outline-artwork {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("https://i.pinimg.com/1200x/fa/77/c6/fa77c6b1f92537c64bcad9e3e04ff8cb.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.16;
+      mix-blend-mode: screen;
     }
 
     /* BORDODAN LACİVERTE AKAN YILDIZLAR & HAFİF KAR YAĞIŞI */
@@ -118,6 +131,43 @@
       animation: gentleSnowDrift linear infinite;
     }
 
+    /* 6 DAKİKADA BİR 3-4 SANİYE GEÇEN PATİLER */
+    @keyframes pawTrailWalk {
+      0% {
+        opacity: 0;
+        transform: translateX(-40px) translateY(8px) scale(0.9);
+      }
+      20% {
+        opacity: 0.85;
+      }
+      80% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(65vw) translateY(-14px) scale(1);
+      }
+    }
+
+    .walking-paws-overlay {
+      position: fixed;
+      left: 0;
+      bottom: 24px;
+      z-index: 30;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      animation: pawTrailWalk 3.6s ease-in-out forwards;
+    }
+
+    .walking-paws-overlay img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+    }
+
     .full-header,
     .full-flow {
       position: relative;
@@ -174,8 +224,10 @@
     }
 
     .glass-panel {
+      position: relative;
+      z-index: 3;
       background: var(--blend-surface);
-      border: 1px solid rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.65);
       border-radius: 20px;
       padding: 20px 22px;
       margin-bottom: 22px;
@@ -244,18 +296,19 @@
       margin-top: 8px;
     }
 
-    /* MENÜ ÜSTÜNDE OTURAN KEDİCİK ("Meow!" & DÜŞME) */
+    /* MENÜ ÜSTÜNDE SARKAN KEDİCİK ("Meow!" & DÜŞME) */
     .writer-right-wrap {
       position: relative;
-      padding-top: 28px;
+      z-index: 4;
+      padding-top: 26px;
     }
 
     .cat-perch-bar {
       position: relative;
-      height: 36px;
+      height: 54px;
       display: flex;
       justify-content: flex-start;
-      padding-left: 26px;
+      padding-left: 24px;
       margin-bottom: -4px;
     }
 
@@ -266,7 +319,7 @@
       }
       100% {
         opacity: 0;
-        transform: translateY(140px) rotate(32deg);
+        transform: translateY(150px) rotate(32deg);
       }
     }
 
@@ -275,15 +328,18 @@
       border: none;
       background: none;
       padding: 0;
-      font-size: 28px;
-      line-height: 1;
+      width: 56px;
+      height: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       user-select: none;
       transition: transform 0.18s ease, opacity 0.25s ease;
     }
 
     .perched-cat-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(2px);
     }
 
     .perched-cat-btn.cat-fallen {
@@ -291,10 +347,18 @@
       pointer-events: none;
     }
 
+    .perched-cat-img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 12px;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.28));
+    }
+
     .cat-speech-bubble {
       position: absolute;
-      top: -28px;
-      left: 22px;
+      top: -26px;
+      left: 34px;
       padding: 3px 10px;
       border-radius: 999px;
       background: #FFFFFF;
@@ -383,7 +447,7 @@
     }
     .edit-book-pick-btn:hover { background: #F5F2FA; }
 
-    /* TAM SAYFA EKRANLAR */
+    /* TAM SAYFA EKRANLAR (BEYAZ TEMİZ ZEMİN) */
     .fullscreen-screen {
       position: fixed;
       inset: 0;
@@ -456,7 +520,6 @@
       margin-top: 14px;
     }
 
-    /* BOYDAN BOYA ETKİLEŞİM PANELİ */
     .wattpad-sidebar {
       height: 100%;
       min-height: 72vh;
@@ -470,7 +533,6 @@
       box-shadow: 0 8px 24px rgba(24, 20, 36, 0.06);
     }
 
-    /* YUKARIDA SADE KALP + "OY VER" + BÜYÜK KALP ANİMASYONLARI */
     .heart-vote-row {
       position: relative;
       display: flex;
@@ -636,6 +698,8 @@
 
     /* Manolia & Tutarcela Alanları */
     .twins-showcase {
+      position: relative;
+      z-index: 3;
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-bottom: 24px;
     }
     @media (max-width: 860px) { .twins-showcase { grid-template-columns: 1fr; } }
@@ -645,37 +709,36 @@
       box-shadow: 0 16px 34px rgba(8, 12, 24, 0.28);
     }
 
-    /* MANOLİA SARMAŞIK & DESENLERİ */
+    /* MANOLİA YAPRAKLARI / SARMAŞIK GÖRSELİ */
     .twin-zone.manolia-zone {
       color: #F4F7FC; border: 1px solid rgba(154, 184, 238, 0.36);
-      background:
-        radial-gradient(circle at 8% 12%, rgba(126, 178, 214, 0.22), transparent 36%),
-        radial-gradient(circle at 92% 88%, rgba(92, 146, 206, 0.2), transparent 38%),
-        linear-gradient(160deg, var(--navy-deep) 0%, var(--navy-mid) 65%, #122344 100%);
+      background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy-mid) 65%, #122344 100%);
     }
 
-    .manolia-vine-svg {
+    .manolia-leaves-img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
       pointer-events: none;
-      opacity: 0.34;
+      opacity: 0.2;
+      mix-blend-mode: screen;
     }
 
-    /* TUTARCELA SOLUK HİLAL EVRESİ (ZAMANLA MATLAŞAN) */
+    /* TUTARCELA MOON / HİLAL EVRESİ */
     .twin-zone.tutarcela-zone {
       color: #FDF4F6; border: 1px solid rgba(235, 162, 184, 0.36);
       background: linear-gradient(160deg, var(--burgundy-deep) 0%, var(--burgundy-mid) 65%, #461121 100%);
     }
 
-    @keyframes faintCrescentPhase {
+    @keyframes moonFadeAndMatte {
       0% {
         opacity: 0;
         filter: blur(1px);
       }
       35% {
-        opacity: 0.38;
+        opacity: 0.42;
         filter: blur(0px);
       }
       100% {
@@ -684,15 +747,17 @@
       }
     }
 
-    .tutarcela-faint-crescent {
+    .tutarcela-moon-img {
       position: absolute;
-      top: 16px;
-      right: 22px;
-      font-size: 62px;
-      line-height: 1;
-      color: #F8DCE4;
+      top: 14px;
+      right: 18px;
+      width: 92px;
+      height: 92px;
+      object-fit: cover;
+      border-radius: 50%;
       pointer-events: none;
-      animation: faintCrescentPhase 7.5s ease-in-out infinite alternate;
+      mix-blend-mode: screen;
+      animation: moonFadeAndMatte 7.5s ease-in-out infinite alternate;
     }
 
     .zone-top {
@@ -773,6 +838,9 @@
   </style>
 </head>
 <body>
+  <!-- GİRİŞ ARKA PLAN OUTLINE HAT -->
+  <div class="bg-outline-artwork" aria-hidden="true"></div>
+
   <!-- BORDODAN LACİVERTE AKAN YILDIZLAR & HAFİF KAR -->
   <div class="ambient-sky-layer" id="ambientSkyLayer" aria-hidden="true">
     <div class="shooting-star"></div>
@@ -865,12 +933,20 @@
         </div>
       </aside>
 
-      <!-- MENÜ ÜSTÜNDE OTURAN KEDİCİK + CREATE / DÜZENLE / NOTLUK -->
+      <!-- MENÜ ÜSTÜNDE SARKAN KEDİCİK + CREATE / DÜZENLE / NOTLUK -->
       <div class="writer-right-wrap hidden" id="writerRightCol">
         <div class="cat-perch-bar" id="catPerchBar">
           <button class="perched-cat-btn" type="button" id="perchedCatBtn" title="Kediciğe tıkla">
             <span id="catBubble" class="cat-speech-bubble hidden">Meow!</span>
-            <span id="catEmoji">🐱</span>
+            <img
+              id="catImg"
+              class="perched-cat-img"
+              src="https://i.pinimg.com/1200x/a3/0f/6f/a30f6fa77f71070d93027eacee801e10.jpg"
+              alt="Sarkan kedicik"
+              referrerpolicy="no-referrer"
+              onerror="this.style.display='none'; document.getElementById('catFallbackEmoji').classList.remove('hidden');"
+            >
+            <span id="catFallbackEmoji" class="hidden" style="font-size:28px;">🐱</span>
           </button>
         </div>
 
@@ -915,15 +991,15 @@
 
     <section class="twins-showcase">
       <article class="twin-zone manolia-zone">
-        <!-- MANOLİA SARMAŞIK & DESENLERİ -->
-        <svg class="manolia-vine-svg" viewBox="0 0 400 400" preserveAspectRatio="none">
-          <path d="M-10,60 Q85,20 120,120 T60,250 T145,390" fill="none" stroke="#B7D5FF" stroke-width="2.5"/>
-          <circle cx="88" cy="66" r="6" fill="#B7D5FF"/>
-          <circle cx="118" cy="122" r="5" fill="#9AC2F5"/>
-          <circle cx="62" cy="248" r="6" fill="#B7D5FF"/>
-          <path d="M410,90 Q320,130 295,220 T355,360" fill="none" stroke="#B7D5FF" stroke-width="2"/>
-          <circle cx="295" cy="220" r="5" fill="#9AC2F5"/>
-        </svg>
+        <!-- MANOLİA YAPRAKLARI -->
+        <img
+          class="manolia-leaves-img"
+          src="https://i.pinimg.com/736x/7c/3f/9d/7c3f9db9d1d50ec65bfae96d4e30ca8d.jpg"
+          alt=""
+          aria-hidden="true"
+          referrerpolicy="no-referrer"
+          onerror="this.style.display='none';"
+        >
         <div class="zone-top">
           <h2 class="zone-title">Manolia'nın Yarattığı Kitap</h2>
           <span class="zone-pill">LACİVERT</span>
@@ -932,8 +1008,15 @@
       </article>
 
       <article class="twin-zone tutarcela-zone">
-        <!-- TUTARCELA SOLUK HİLAL EVRESİ -->
-        <div class="tutarcela-faint-crescent" aria-hidden="true">☾</div>
+        <!-- TUTARCELA MOON / HİLAL -->
+        <img
+          class="tutarcela-moon-img"
+          src="https://i.pinimg.com/1200x/da/a9/b7/daa9b70f51f5ac2ad0e4da57313f7ce7.jpg"
+          alt=""
+          aria-hidden="true"
+          referrerpolicy="no-referrer"
+          onerror="this.style.display='none';"
+        >
         <div class="zone-top">
           <h2 class="zone-title">Tutarcela'nın Yarattığı Kitap</h2>
           <span class="zone-pill">BORDO</span>
@@ -997,7 +1080,6 @@
           <div class="wattpad-body" id="wpStoryBody"></div>
         </div>
 
-        <!-- BOYDAN BOYA ETKİLEŞİM PANELİ -->
         <aside class="wattpad-sidebar">
           <div class="heart-vote-row" id="heartVoteRow">
             <button class="plain-heart-btn" type="button" id="wpVoteBtn">
@@ -1042,7 +1124,9 @@
     (function () {
       var PIN = "1999";
       var BIO_LIMIT = 500;
-      var STORAGE_KEY = "mt_studio_v13";
+      var STORAGE_KEY = "mt_studio_v14";
+      var SIX_MINUTES_MS = 6 * 60 * 1000;
+      var PAW_URL = "https://i.pinimg.com/736x/0c/83/5e/0c835ef3cebe8ae41312c8b4010b7cab.jpg";
 
       var writerOpen = false;
       var chosenOwner = "manolia";
@@ -1053,7 +1137,6 @@
       var commentsExpanded = false;
       var pendingAnnounceMedia = { dataUrl: "", name: "", isImage: false };
 
-      /* KEDİCİK HIZLI TIKLAMA & DÜŞÜP 32 SN SONRA DÖNME */
       var catClickTimes = [];
       var catRespawnTimer = null;
 
@@ -1099,7 +1182,37 @@
         ]
       };
 
-      /* HAFİF KAR YAĞIŞI TANELERİ */
+      /* 6 DAKİKADA BİR 3-4 SANİYELİĞİNE GEÇEN PATİLER */
+      function spawnWalkingPaws() {
+        var wrap = document.createElement("div");
+        wrap.className = "walking-paws-overlay";
+        wrap.setAttribute("aria-hidden", "true");
+
+        for (var i = 0; i < 4; i++) {
+          var pImg = document.createElement("img");
+          pImg.src = PAW_URL;
+          pImg.alt = "";
+          pImg.referrerPolicy = "no-referrer";
+          pImg.style.marginTop = (i % 2 === 0 ? "0px" : "-12px");
+          pImg.onerror = function () {
+            if (this.parentNode) {
+              var dot = document.createElement("span");
+              dot.textContent = "🐾";
+              dot.style.fontSize = "22px";
+              this.parentNode.replaceChild(dot, this);
+            }
+          };
+          wrap.appendChild(pImg);
+        }
+
+        document.body.appendChild(wrap);
+        setTimeout(function () {
+          if (wrap && wrap.parentNode) wrap.parentNode.removeChild(wrap);
+        }, 3700);
+      }
+
+      setInterval(spawnWalkingPaws, SIX_MINUTES_MS);
+
       function buildGentleSnow() {
         var layer = document.getElementById("ambientSkyLayer");
         if (!layer) return;
@@ -1116,7 +1229,6 @@
         }
       }
 
-      /* KEDİCİK ETKİLEŞİMİ */
       document.getElementById("perchedCatBtn").addEventListener("click", function () {
         var catBtn = document.getElementById("perchedCatBtn");
         if (catBtn.classList.contains("cat-fallen")) return;
@@ -1674,7 +1786,6 @@
         setTimeout(function () { fb.textContent = ""; }, 2000);
       });
 
-      /* TEK OY HAKKI & BÜYÜK KALP ANİMASYONLARI */
       function getVoteKey(bookId) {
         if (!state.googleUser || !state.googleUser.email || !bookId) return "";
         return bookId + "::" + state.googleUser.email.toLowerCase();
@@ -1733,7 +1844,6 @@
         }, 1200);
       }
 
-      /* GOOGLE OTURUM KONTROLÜ */
       var pendingAuthAction = null;
 
       function refreshGoogleAuthUI() {
@@ -1787,7 +1897,6 @@
         showToast("Google oturumu kapatıldı.");
       });
 
-      /* AÇILIR YORUMLAR & YORUMA CEVAP VERME */
       document.getElementById("commentsToggleBtn").addEventListener("click", function () {
         commentsExpanded = !commentsExpanded;
         document.getElementById("commentsDrawerBody").classList.toggle("hidden", !commentsExpanded);
