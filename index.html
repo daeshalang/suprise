@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>İYİ DOĞDUNUZ! — Manolia & Tutarcela</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>✦</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -110,7 +111,7 @@
 
     .profile-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
     .avatar-circle {
-      width: 74px; height: 74px; border-radius: 50%; padding: 3px;
+      width: 78px; height: 78px; border-radius: 50%; padding: 3px;
       background: linear-gradient(135deg, var(--navy-glow), var(--burgundy-glow)); flex-shrink: 0;
     }
     .avatar-circle-inner {
@@ -118,6 +119,22 @@
       display: flex; align-items: center; justify-content: center; font-size: 26px; overflow: hidden;
     }
     .avatar-circle-inner img { width: 100%; height: 100%; object-fit: cover; }
+
+    .bio-display {
+      margin: 0;
+      font-size: 14px;
+      color: var(--ink-muted);
+      white-space: pre-line;
+      word-break: break-word;
+    }
+
+    .char-counter {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      text-align: right;
+      margin-top: 4px;
+    }
 
     .menu-strip { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
     .menu-btn {
@@ -143,6 +160,21 @@
       width: 100%; padding: 10px 13px; border-radius: 11px;
       border: 1px solid rgba(44, 26, 60, 0.24); background: #FFF;
       font-family: "Plus Jakarta Sans", sans-serif; font-size: 13.5px; color: var(--ink-dark);
+    }
+
+    .file-pick-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 10px;
+      border: 1px dashed rgba(44, 26, 60, 0.35);
+      background: rgba(255, 255, 255, 0.85);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink-dark);
+      cursor: pointer;
     }
 
     .btn-blend {
@@ -212,7 +244,7 @@
   <main class="full-flow">
     <section class="glass-panel hidden" id="pinSection">
       <h2 style="margin:0 0 8px; font-size:19px;">Yazar Modu PIN Girişi</h2>
-      <p style="margin:0 0 10px; font-size:13.5px; color:var(--ink-muted);">Varsayılan PIN: <strong>2026</strong></p>
+      <p style="margin:0 0 10px; font-size:13.5px; color:var(--ink-muted);">PIN kodunu gir:</p>
       <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
         <input type="password" id="pinField" placeholder="PIN gir..." style="max-width:220px;">
         <button class="btn-blend" type="button" id="pinSubmitBtn">Aç</button>
@@ -233,24 +265,34 @@
     <section class="top-workspace reader-only-layout" id="topWorkspace">
       <aside class="glass-panel" style="margin-bottom:0;">
         <div class="profile-row">
-          <div class="avatar-circle"><div class="avatar-circle-inner" id="avatarInner">*</div></div>
+          <div class="avatar-circle"><div class="avatar-circle-inner" id="avatarInner">✦</div></div>
           <div>
             <h2 style="margin:0; font-size:20px;" id="profName">Yazar Profili</h2>
             <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--ink-muted);" id="profTag">Evren ve Hikaye Defteri</div>
           </div>
         </div>
-        <p style="margin:0; font-size:14px; color:var(--ink-muted); white-space:pre-line;" id="profBio">
+        <p class="bio-display" id="profBio">
           Manolia (lacivert) ve Tutarcela (bordo) dünyaları burada buluşuyor.
         </p>
 
         <div id="writerProfileBox" class="hidden" style="margin-top:12px;">
           <button class="btn-soft" type="button" id="editProfToggleBtn">Profili Düzenle</button>
-          <form class="stack hidden" id="profForm" style="margin-top:12px;">
-            <input type="file" id="photoInput" accept="image/*">
-            <input type="text" id="nameInput" placeholder="İsim...">
-            <input type="text" id="tagInput" placeholder="Etiket...">
-            <textarea id="bioInput" rows="3" maxlength="500" placeholder="Biyografi (max 500 karakter)..."></textarea>
-            <div><button class="btn-blend" type="submit">Profili Kaydet</button></div>
+          <form class="stack hidden" id="profForm" style="margin-top:12px; padding-top:12px; border-top:1px dashed rgba(44,26,60,0.2);">
+            <div>
+              <label class="file-pick-label" for="photoInput">Galeriden Fotoğraf Seç</label>
+              <input type="file" id="photoInput" accept="image/*" style="display:none;">
+              <span id="photoNameLabel" style="margin-left:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:var(--ink-muted);"></span>
+            </div>
+            <input type="text" id="nameInput" placeholder="İsim ayarla...">
+            <input type="text" id="tagInput" placeholder="Etiket (isteğe bağlı)...">
+            <div>
+              <textarea id="bioInput" rows="4" maxlength="500" placeholder="Biyo yaz (en fazla 500 karakter)..."></textarea>
+              <div class="char-counter" id="bioCounter">0 / 500</div>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <button class="btn-blend" type="submit">Profili Kaydet</button>
+              <button class="btn-soft" type="button" id="cancelProfBtn">Vazgeç</button>
+            </div>
           </form>
         </div>
       </aside>
@@ -316,7 +358,8 @@
 
   <script>
     (function () {
-      var PIN = "2026";
+      var PIN = "1999";
+      var BIO_LIMIT = 500;
       var writerOpen = false;
       var chosenAuthor = "manolia";
       var tempPhoto = "";
@@ -344,7 +387,7 @@
 
       function safeRead() {
         try {
-          var raw = window.localStorage.getItem("mt_studio_v5");
+          var raw = window.localStorage.getItem("mt_studio_v6");
           if (!raw) return;
           var p = JSON.parse(raw);
           if (p.capcutUrl) state.capcutUrl = p.capcutUrl;
@@ -352,7 +395,7 @@
             state.profile.name = p.profile.name || state.profile.name;
             state.profile.tag = p.profile.tag || state.profile.tag;
             state.profile.avatar = p.profile.avatar || "";
-            state.profile.bio = typeof p.profile.bio === "string" ? p.profile.bio : state.profile.bio;
+            state.profile.bio = typeof p.profile.bio === "string" ? p.profile.bio.slice(0, BIO_LIMIT) : state.profile.bio;
           }
           if (typeof p.notes === "string") state.notes = p.notes;
           if (p.books && p.books.manolia && Array.isArray(p.books.manolia.chapters)) {
@@ -366,8 +409,15 @@
 
       function safeWrite() {
         try {
-          window.localStorage.setItem("mt_studio_v5", JSON.stringify(state));
+          window.localStorage.setItem("mt_studio_v6", JSON.stringify(state));
         } catch (err) {}
+      }
+
+      function refreshBioCounter() {
+        var bioEl = document.getElementById("bioInput");
+        var clipped = bioEl.value.slice(0, BIO_LIMIT);
+        if (bioEl.value !== clipped) bioEl.value = clipped;
+        document.getElementById("bioCounter").textContent = clipped.length + " / " + BIO_LIMIT;
       }
 
       function setWriterMode(open) {
@@ -399,7 +449,7 @@
           document.getElementById("pinMsg").textContent = "";
           setWriterMode(true);
         } else {
-          document.getElementById("pinMsg").textContent = "PIN hatalı (2026).";
+          document.getElementById("pinMsg").textContent = "PIN hatalı.";
         }
       }
 
@@ -444,33 +494,58 @@
       });
 
       function renderProfile() {
+        var safeBio = (state.profile.bio || "").slice(0, BIO_LIMIT);
         document.getElementById("profName").textContent = state.profile.name;
         document.getElementById("profTag").textContent = state.profile.tag;
-        document.getElementById("profBio").textContent = state.profile.bio.slice(0, 500);
+        document.getElementById("profBio").textContent = safeBio;
         document.getElementById("nameInput").value = state.profile.name;
         document.getElementById("tagInput").value = state.profile.tag;
-        document.getElementById("bioInput").value = state.profile.bio.slice(0, 500);
+        document.getElementById("bioInput").value = safeBio;
+        refreshBioCounter();
+
         var av = document.getElementById("avatarInner");
         if (state.profile.avatar) {
           var img = document.createElement("img");
           img.src = state.profile.avatar;
-          img.alt = "Profil";
+          img.alt = "Profil fotoğrafı";
           av.innerHTML = "";
           av.appendChild(img);
         } else {
-          av.textContent = "*";
+          av.textContent = "✦";
         }
       }
 
       document.getElementById("editProfToggleBtn").addEventListener("click", function () {
+        tempPhoto = state.profile.avatar || "";
+        document.getElementById("photoNameLabel").textContent = "";
         document.getElementById("profForm").classList.toggle("hidden");
+        refreshBioCounter();
       });
+
+      document.getElementById("cancelProfBtn").addEventListener("click", function () {
+        tempPhoto = state.profile.avatar || "";
+        document.getElementById("profForm").classList.add("hidden");
+        renderProfile();
+      });
+
+      document.getElementById("bioInput").addEventListener("input", refreshBioCounter);
 
       document.getElementById("photoInput").addEventListener("change", function (e) {
         var f = e.target.files && e.target.files[0];
         if (!f || !window.FileReader) return;
+        document.getElementById("photoNameLabel").textContent = f.name;
         var r = new FileReader();
-        r.onload = function (ev) { tempPhoto = ev.target.result || ""; };
+        r.onload = function (ev) {
+          tempPhoto = ev.target.result || "";
+          if (tempPhoto) {
+            var img = document.createElement("img");
+            img.src = tempPhoto;
+            img.alt = "Önizleme";
+            var av = document.getElementById("avatarInner");
+            av.innerHTML = "";
+            av.appendChild(img);
+          }
+        };
         r.readAsDataURL(f);
       });
 
@@ -478,7 +553,7 @@
         e.preventDefault();
         state.profile.name = document.getElementById("nameInput").value.trim() || "Yazar Profili";
         state.profile.tag = document.getElementById("tagInput").value.trim() || "Evren ve Hikaye Defteri";
-        state.profile.bio = document.getElementById("bioInput").value.slice(0, 500);
+        state.profile.bio = document.getElementById("bioInput").value.slice(0, BIO_LIMIT);
         if (tempPhoto) state.profile.avatar = tempPhoto;
         safeWrite();
         renderProfile();
